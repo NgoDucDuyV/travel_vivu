@@ -1,0 +1,467 @@
+
+body{
+    background-color:#fff;
+}
+
+.sidebar {
+    position: relative;
+    bottom: 10px;
+    flex: 1.5; /* Chiếm 1 phần */
+    min-width: 330px; /* Chiều rộng của sidebar */
+    background-color: #ffffff00; /* Padding tổng thể cho sidebar, trước đây là padding của widget đầu tiên */
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-top: 15px; /* Đảm bảo padding không làm tăng width */
+}
+
+/* Sidebar Styling */
+.sidebar-block {
+    background-color:#f7f7f7;
+    margin-bottom: 30px;
+    padding: 30px 30px;
+    border-radius:10px;
+}
+
+.sidebar-block h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.sidebar-block.search-block form {
+    display: flex;
+}
+
+.sidebar-block.search-block input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.sidebar-block.search-block button {
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-block.search-block button:hover {
+    background-color: #e64a19;
+}
+
+.sidebar-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-block ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar-block ul li a {
+    text-decoration: none;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.sidebar-block ul li a:hover {
+    color: #ff5722;
+    background-color:#0000;
+}
+
+.sidebar-block.recent-comments-block ul li span {
+    color: #888;
+    font-size: 0.9em;
+}
+
+.sidebar-block.categories-block ul li a {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sidebar-block.newsletter-block input[type="email"] {
+    width: calc(100% - 22px); /* Trừ padding */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+.sidebar-block .subscribe-btn {
+    width: 100%;
+    background-color: #4CAF50; /* Màu xanh lá */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-block .subscribe-btn:hover {
+    background-color: #45a049;
+}
+
+.sidebar-block.tags-block .tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.sidebar-block.tags-block .tags-list a {
+    background-color: #eee;
+    color: #666;
+    padding: 5px 12px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-block.tags-block .tags-list a:hover {
+    background-color: #ff5722;
+    color: #fff;
+}
+/* Sidebar Styling */
+.sidebar-block {
+    margin-bottom: 30px;
+}
+
+.sidebar-block h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.sidebar-block.search-block form {
+    display: flex;
+}
+
+.sidebar-block.search-block input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.sidebar-block.search-block button {
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-block.search-block button:hover {
+    background-color: #e64a19;
+}
+
+.sidebar-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-block ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar-block ul li a {
+    text-decoration: none;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.sidebar-block ul li a:hover {
+    color: #ff5722;
+    background-color:#0000;
+}
+
+.sidebar-block.recent-comments-block ul li span {
+    color: #888;
+    font-size: 0.9em;
+}
+
+.sidebar-block.categories-block ul li a {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sidebar-block.newsletter-block input[type="email"] {
+    width: calc(100% - 22px); /* Trừ padding */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+.sidebar-block .subscribe-btn {
+    width: 100%;
+    background-color: #4CAF50; /* Màu xanh lá */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-block .subscribe-btn:hover {
+    background-color: #45a049;
+}
+
+.sidebar-block.tags-block .tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.sidebar-block.tags-block .tags-list a {
+    background-color: #eee;
+    color: #666;
+    padding: 5px 12px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-block.tags-block .tags-list a:hover {
+    background-color: #ff5722;
+    color: #fff;
+}
+
+
+.widget {
+    background-color: #fff; /* Widget đã có màu nền trắng */
+    padding: 20px; /* Padding bên trong mỗi widget */
+    margin-bottom: 20px; /* Khoảng cách giữa các widget */
+    border-radius: 8px; /* Bo góc cho mỗi widget */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08); /* Bóng nhẹ cho từng widget */
+}
+
+/* Điều chỉnh widget đầu tiên nếu nó đã nằm trong sidebar có bóng tổng thể */
+.sidebar .widget:first-child {
+    margin-top: 0; /* Đảm bảo không có margin top thừa */
+}
+
+.widget-title {
+    font-size: 18px;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 8px; /* Khoảng cách cho đường gạch chân */
+}
+
+.widget-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30px; /* Chiều dài của đường gạch chân */
+    height: 3px;
+    background-color: #ff6600; /* Màu cam của đường gạch chân */
+    border-radius: 2px;
+}
+
+/* Phần Tìm kiếm */
+.search-form-container {
+    display: flex;
+    gap: 10px; /* Khoảng cách giữa input và button */
+}
+
+.search-input {
+    flex-grow: 1; /* Cho phép input chiếm hết không gian còn lại */
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: #ff6600;
+}
+
+.search-button {
+    padding: 10px 15px;
+    background-color: #ff6600; /* Màu cam */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.search-button:hover {
+    background-color: #e65c00; /* Màu cam đậm hơn khi hover */
+}
+
+/* Phần Bài viết mới và Phản hồi gần đây (và Bài viết gần đây nếu có) */
+.post-list, .comment-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.post-list li, .comment-list li {
+    margin-bottom: 10px;
+}
+
+.post-list li:last-child, .comment-list li:last-child {
+    margin-bottom: 0;
+}
+
+.post-list a, .comment-list a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.4;
+    display: block; /* Để toàn bộ vùng link có thể click được */
+    transition: color 0.2s ease;
+}
+
+.post-list a:hover, .comment-list a:hover {
+    color: #ff6600; /* Màu cam khi hover */
+}
+
+.comment-list li {
+    border-bottom: 1px solid #eee; /* Đường kẻ dưới mỗi comment */
+    padding-bottom: 10px;
+}
+
+.comment-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* --- CSS cho các phần bổ sung: Categories và Newsletter --- */
+
+/* Phần Categories */
+.categories-widget .category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.categories-widget .category-list li {
+    margin-bottom: 5px; /* Khoảng cách giữa các mục category */
+}
+
+.categories-widget .category-list li:last-child {
+    margin-bottom: 0;
+}
+
+.categories-widget .category-list a {
+    display: flex;
+    justify-content: space-between; /* Đẩy tên category và số đếm ra hai bên */
+    align-items: center;
+    padding: 8px 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.categories-widget .category-list a:hover {
+    background-color: #ff6600; /* Màu cam khi hover */
+    color: white;
+}
+
+.categories-widget .category-list a:hover .post-count {
+    color: white; /* Đảm bảo số đếm cũng trắng khi hover */
+}
+
+.categories-widget .post-count {
+    background-color: #ddd;
+    color: #333;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    margin-left: 10px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Phần Newsletter */
+.newsletter-form-container {
+    display: flex;
+    flex-direction: column; /* Xếp input và button chồng lên nhau */
+    gap: 10px;
+}
+
+.newsletter-input {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    box-sizing: border-box; /* Bao gồm padding và border trong width */
+    outline: none;
+}
+
+.newsletter-input:focus {
+    border-color: #ff6600;
+}
+
+.subscribe-button {
+    padding: 12px 15px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    box-sizing: border-box;
+}
+
+.subscribe-button:hover {
+    background-color: #e65c00;
+}
+
+@media (max-width: 984px) {
+    .main-content {
+        flex-direction: column; /* Đặt các cột thành hàng dọc trên màn hình nhỏ */
+    }
+
+    .blog-posts, .sidebar {
+        flex: none; /* Bỏ flex để chiếm toàn bộ chiều rộng */
+        width: 100%;
+    }
+
+    .post-card .post-meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .post-card .post-meta span {
+        margin-bottom: 5px;
+    }
+
+    .post-card .read-more {
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+    }
+}

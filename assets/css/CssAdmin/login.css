@@ -1,0 +1,178 @@
+:root{
+    --color-hesder:#ffffff;
+    --color:#ffffff;
+    --background-mau1:#181a1b;
+    --background-hero-layout:url('img/banner-bg-1.png');
+    --title-font:"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --body-font:"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --fonfammyny:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --title-link:#ff661ad9;
+    --title-link-hover:#ff6619e7;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.4s ease;
+    --box-shadow:1px 1px 15px #000;
+    --background-mau: linear-gradient(to bottom, #ffa726, #29b6f6);
+    --background-thudan: linear-gradient(to bottom, #ff7e5f, #feb47b);
+    --background-toxanh: linear-gradient(to bottom, #ffa726, #29b6f6);
+    --background-song: repeating-linear-gradient(45deg, #ff9800, #ff9800 20px, #ffffff 20px, #ffffff 40px);
+    --hover-thea:#37d4d9;
+    --transiutton-imghover: all 1s ease;
+    --box-shadow_nhe:0 0 20px #00000029;
+    --color_fonttitle:#000000ad;
+    --background-color: #fff;
+    --font-family: Roboto, sans-serif;
+    --color_hover_onclick:#4452da;
+    --background-color-onclick:#d6d9f7;
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #535a60;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #e7e7e7;
+    --dark: #343a40;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --cam_moof:#ffd68456 ;
+}
+.section_login{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.login{
+    display: flex;
+    flex-direction: row;
+    max-width: 1000px;
+    height: 600px;
+    background-color: var(--background-color);
+    border-radius:10px;
+    overflow: hidden;
+    box-shadow: 17px 27px 90px 3px rgba(0,0,0,0.15);
+-webkit-box-shadow: 17px 27px 90px 3px rgba(0,0,0,0.15);
+-moz-box-shadow: 17px 27px 90px 3px rgba(0,0,0,0.15);
+}
+.login_left{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: var(--title-link);
+    border-radius:10px;
+    color:var(--background-color);
+    padding: 20px 50px;
+    box-sizing:border-box;
+}
+.login_left>*{
+    margin-top: 20px;
+}
+
+.login_left>h1{
+    font-size: 50px;
+}
+.login_left>p{
+    font-size: 18px;
+    font-family: var(--font-family-sans-serif);
+}
+
+.login_right{
+    box-sizing:border-box;
+    flex: 1;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+}
+.logo{
+    display: flex;
+}
+.logo>img{
+    width: 300px;
+    margin: auto;
+}
+
+.error{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    height: 60px;
+    background-color: var(--cam_moof);
+    padding: 0 10px;
+    border-radius:5px;
+    margin-top: 20px;
+}
+
+.error>.icon{
+    width: 25px;
+    height: 25px;
+    display: flex;
+    border-radius:50%;
+    background-color:var(--orange);
+    margin-right: 10px;
+}
+.error>.icon>i{
+    font-size: 20px;
+    margin: auto;
+    color:var(--background-color);
+}
+
+.conten_error{
+    flex: 1;
+}
+
+.form_login{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.form_login>*{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.form_login>*>*{
+    margin-top: 5px;
+}
+
+.form_login>*>input{
+    height: 50px;
+    border-radius:5px;
+    border:1px solid #0000008e;
+    padding: 0 20px;
+}
+.option_role{
+    height: 50px;
+    border-radius:5px;
+    border:1px solid #0000008e;
+    padding: 0 20px;
+}
+
+.btn>button{
+    width: 120px;
+    padding: 10px;
+    border-radius:5px;
+    color:var(--background-color);
+    background-color:var(--orange);
+    border: 1px solid var(--orange);
+}
+
+

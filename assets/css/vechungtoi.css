@@ -1,0 +1,332 @@
+:root {
+    --primary-color: #ff6a00; /* Màu cam chính */
+    --text-color: #333;
+    --light-text-color: #666;
+    --background-grey: #f8f8f8;
+    --border-grey: #eee;
+    --white: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--white);
+}
+
+/* Hero Section */
+.herovechungtoi_section {
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    height: 500px;
+    background-color: var(--background-grey);
+    padding: 50px 0px ;
+}
+
+.herovechungtoi_content {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    margin: 100px 0px ;
+}
+
+.herovechungtoi_content>p {
+    color: var(--primary-color);
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.herovechungtoi-content>h1 {
+    font-size: 2.8em;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.background-dots {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, var(--border-grey) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.5;
+    z-index: 0;
+}
+
+/* Timeline Section */
+.timeline-section {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.timeline-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 20px;
+}
+
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: var(--border-grey);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+    z-index: 0;
+}
+
+.timeline-item {
+    padding: 20px 0;
+    position: relative;
+    width: 50%;
+    margin-bottom: 40px;
+    z-index: 1;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    border: 3px solid var(--white);
+    z-index: 2;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.timeline-item.left {
+    left: 0;
+    padding-right: 60px;
+}
+
+.timeline-item.right {
+    left: 50%;
+    padding-left: 60px;
+}
+
+.timeline-item.left::before {
+    right: -8px;
+}
+
+.timeline-item.right::before {
+    left: -8px;
+}
+
+.timeline-content {
+    background-color: var(--background-grey);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.timeline-content h3 {
+    font-size: 1.5em;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.timeline-content .year {
+    font-size: 1.1em;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.timeline-content p {
+    font-size: 0.95em;
+    color: var(--light-text-color);
+    line-height: 1.7;
+}
+
+/* Promo Section (trước đây là Footer Section) */
+.promo-section { /* Đổi tên class từ .footer thành .promo-section */
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+
+}
+
+.promo_content{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 50px;
+}
+
+.promo-content { /* Đổi tên class từ .footer-content thành .promo-content */
+    max-width: 600px;
+    text-align: left;
+    margin-right: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.promo-section .go-discover { /* Cập nhật selector */
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.promo-section h2 { /* Cập nhật selector */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.promo-section p { /* Cập nhật selector */
+    font-size: 1em;
+    margin-bottom: 30px;
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+.btn {
+    background-color: var(--white);
+    color: var(--primary-color);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #f0f0f0;
+    color: #cc5600;
+}
+
+.discount-circle {
+    background-color: var(--white);
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    color: var(--primary-color);
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.discount-percent {
+    font-size: 4.5em;
+    line-height: 1;
+}
+
+.discount-off {
+    font-size: 1.5em;
+    margin-top: -10px;
+}
+
+/* Responsive Design (Cập nhật selector) */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2em;
+    }
+
+    .timeline-container::after {
+        left: 20px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 60px;
+        margin-bottom: 30px;
+    }
+
+    .timeline-item.left,
+    .timeline-item.right {
+        left: 0;
+        padding-right: 20px;
+    }
+
+    .timeline-item.left::before,
+    .timeline-item.right::before {
+        left: 12px;
+    }
+
+    .promo-section { /* Cập nhật selector */
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .promo-content { /* Cập nhật selector */
+        margin-right: 0;
+        margin-bottom: 40px;
+    }
+
+    .promo-section h2 { /* Cập nhật selector */
+        font-size: 2em;
+    }
+
+    .discount-circle {
+        width: 150px;
+        height: 150px;
+    }
+
+    .discount-percent {
+        font-size: 3.5em;
+    }
+
+    .discount-off {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 60px 0 40px;
+    }
+
+    .hero-section h1 {
+        font-size: 1.8em;
+    }
+
+    .timeline-section {
+        padding: 50px 0;
+    }
+
+    .timeline-content {
+        padding: 20px;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.2em;
+    }
+
+    .promo-section { /* Cập nhật selector */
+        padding: 60px 15px;
+    }
+}

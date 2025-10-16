@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt Tour</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff6600;
+            --text-color: #333;
+            --light-gray: #f4f4f4;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--light-gray);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #fff;
+            padding: 20px 0;
+            border-right: 1px solid var(--border-color);
+            margin-right: 50px;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 25px;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .sidebar-item:hover {
+            background-color: var(--light-gray);
+        }
+
+        .sidebar-item.active {
+            color: var(--primary-color);
+            background-color: #fff4e5;
+            position: relative;
+        }
+
+        .sidebar-item.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: var(--primary-color);
+            border-radius: 0 4px 4px 0;
+        }
+
+        .sidebar-item i {
+            font-size: 18px;
+            width: 30px;
+        }
+
+        .sidebar-item span {
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex-grow: 1;
+            padding: 30px;
+            margin-left: 50px;
+        }
+
+        .main-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin: 0 0 5px 0;
+        }
+
+        .description {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Tabs */
+        .booking-tabs {
+            display: flex;
+            gap: 25px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .tab-link {
+            text-decoration: none;
+            color: #999;
+            font-weight: 500;
+            padding-bottom: 8px;
+            transition: color 0.2s;
+        }
+
+        .tab-link:hover {
+            color: var(--text-color);
+        }
+
+        .tab-link.active {
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .tab-underline {
+            height: 3px;
+            background-color: var(--primary-color);
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            transition: width 0.3s, transform 0.3s;
+            border-radius: 2px;
+        }
+
+        .tab-content {
+            padding-top: 20px;
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-item active" data-content-id="tour-booking">
+                <i class="fas fa-envelope-open-text"></i>
+                <span>Đặt Tour</span>
+            </div>
+            <div class="sidebar-item" data-content-id="address-info">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Địa chỉ</span>
+            </div>
+            <div class="sidebar-item" data-content-id="account-info">
+                <i class="fas fa-user-circle"></i>
+                <span>Tài khoản</span>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div id="tour-booking" class="content-section active">
+                <h1 class="main-title">Đặt Tour</h1>
+                <p class="description">Dưới đây là danh sách các đặt tour đã được thực hiện thành công.</p>
+                
+                <div class="booking-tabs">
+                    <a href="#" class="tab-link active" data-tab="active-booking">Active Booking</a>
+                    <a href="#" class="tab-link" data-tab="recent-booking">Recent Booking</a>
+                    <a href="#" class="tab-link" data-tab="history-booking">Booking History</a>
+                    <div class="tab-underline"></div>
+                </div>
+                
+                <div class="tab-content">
+                    <p>anh yeu em </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Xử lý chuyển đổi sidebar
+            const sidebarItems = document.querySelectorAll('.sidebar-item');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            sidebarItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    sidebarItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+
+                    contentSections.forEach(section => section.classList.remove('active'));
+                    const targetContentId = this.getAttribute('data-content-id');
+                    const targetContent = document.getElementById(targetContentId);
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    }
+                    
+                    // Cập nhật lại gạch chân tab nếu chuyển về mục có tab
+                    if (targetContentId === 'tour-booking') {
+                        const activeTab = document.querySelector('#tour-booking .tab-link.active');
+                        if (activeTab) {
+                            updateUnderline(activeTab);
+                        }
+                    }
+                });
+            });
+
+            // Xử lý chuyển đổi tab
+            const tabs = document.querySelectorAll('.tab-link');
+            const underline = document.querySelector('.tab-underline');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            function updateUnderline(activeTab) {
+                const tabRect = activeTab.getBoundingClientRect();
+                const containerRect = activeTab.parentElement.getBoundingClientRect();
+                underline.style.width = `${tabRect.width}px`;
+                underline.style.transform = `translateX(${tabRect.left - containerRect.left}px)`;
+            }
+
+            // Cập nhật vị trí gạch chân lần đầu
+            const initialActiveTab = document.querySelector('.tab-link.active');
+            if (initialActiveTab) {
+                updateUnderline(initialActiveTab);
+            }
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabPanes.forEach(pane => pane.classList.remove('active'));
+
+                    this.classList.add('active');
+
+                    const targetId = this.getAttribute('data-tab');
+                    const targetPane = document.getElementById(targetId);
+                    if (targetPane) {
+                        targetPane.classList.add('active');
+                    }
+
+                    updateUnderline(this);
+                }); 
+            });
+
+            window.addEventListener('resize', () => {
+                const activeTab = document.querySelector('.tab-link.active');
+                if (activeTab && activeTab.closest('.content-section').classList.contains('active')) {
+                    updateUnderline(activeTab);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

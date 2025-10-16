@@ -1,0 +1,299 @@
+:root {
+    --hover-thea: #37d4d9;
+    --transiutton-imghover: all 1s ease;
+    --box-shadow_nhe: 0 0 20px #00000029;
+    --color_fonttitle: #000000ad;
+    --background-color: #fff;
+    --font-family: Roboto, sans-serif;
+    --color_hover_onclick: #4452da;
+    --background-color-onclick: #d6d9f7;
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #535a60;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #e7e7e7;
+    --dark: #343a40;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --cam_moof: #ffd68456;
+}
+
+.selecrole {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 16px;
+    color: #495057;
+    line-height: 1.5;
+    cursor: pointer;
+    outline: none;
+}
+
+.selecrole:hover {
+    border-color: #888;
+}
+
+.selecrole:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.error {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 60px;
+    background-color: var(--cam_moof);
+    padding: 0 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.error>.icon {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    border-radius: 50%;
+    background-color: var(--orange);
+    margin-right: 10px;
+}
+
+.error>.icon>i {
+    font-size: 20px;
+    margin: auto;
+    color: var(--background-color);
+}
+
+.conten_error {
+    flex: 1;
+}
+
+
+/*login */
+section.login {
+    background-color: #ffffffba;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 150px 0px;
+}
+
+div.login {
+    max-width: 920px;
+    width: 100%;
+    display: flex;
+    position: relative;
+    margin-bottom: 100px;
+}
+
+form.login-form {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 650px;
+    box-shadow: 0 0 20px #00000029;
+    padding: 50px;
+    border-radius: 20px;
+    bottom: 80px;
+    margin-bottom: 100px;
+}
+
+form.login-form>h2 {
+    font-size: 28px;
+}
+
+.rectionSigin {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.rectionSigin>label {
+    font-size: 16px;
+}
+
+.rectionSigin>input {
+    height: 50px;
+    border-radius: 8px;
+    padding-left: 20px;
+    border: 1px solid #00000037;
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* hover Gợi ý nhập form */
+.note {
+    box-sizing: border-box;
+    position: absolute;
+    top: 100%;
+    width: 260px;
+    background: #fff;   
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 13px;
+    color: #333;
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+    z-index: 10;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.Hovernote {
+    opacity: 1;
+    height: auto;
+}
+
+.note ul {
+    margin: 5px 0 0;
+    padding-left: 18px;
+}
+
+/* các nút trong form */
+form.login-form>button {
+    height: 50px;
+    font-size: 20px;
+    background-color: var(--title-link);
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    transition: var(--transition);
+}
+
+form.login-form>button:hover {
+    color: #fff;
+    background-color: aqua;
+}
+
+form.login-form>span {
+    display: flex;
+    flex-direction: row;
+}
+
+form.login-form>span>p {
+    color: #000000;
+    cursor: pointer;
+}
+
+form.login-form>span>p:hover {
+    background-color: #00000000;
+    color: var(--title-link);
+}
+
+form.login {
+    position: relative;
+    z-index: 0;
+    top: 10px;
+    transition: all 0.8s ease-in-out;
+}
+
+form.dkytk {
+    z-index: 1;
+    position: absolute;
+    bottom: -600px;
+    width: 890px;
+    height: 550px;
+    opacity: 0;
+    transition: all 0.7s ease;
+}
+
+.canhbao {
+    box-sizing: border-box;
+    z-index: 1100;
+    position: fixed;
+    top: 15%;
+    right: -400px;
+    width: 400px;
+    height: 100px;
+    opacity: 0;
+    transition: all 0.7 ease;
+    background-color: #ffffff;
+    box-shadow: 5px 5px 8px #00000029;
+    border-left: 5px solid var(--title-link);
+    margin-bottom: 10px;
+}
+
+.canhbao>p {
+    margin: auto;
+}
+
+/* mobi log on and sigin  */
+@media (max-width: 750px) {
+    div.hero-layout-fromdangnhap_content>h1 {
+        font-size: 30px;
+    }
+
+    .hero-layout-fromdangnhap_content-a>a {
+        font-size: 16px;
+    }
+
+    section.login {
+        margin-top: 20px;
+    }
+
+    div.login {
+        height: auto;
+        width: 100%;
+        margin: 0 10px;
+    }
+
+    form.login-form {
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+        padding: 0px 20px;
+        border-radius: 10px;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: initial;
+        bottom: 0px;
+        margin-bottom: 50px;
+    }
+
+    form.login-form>* {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    section.footer {
+        display: none;
+    }
+}
+
+@media (max-width: 450px) {}

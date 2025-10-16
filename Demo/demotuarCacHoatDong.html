@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giao diện Địa điểm du lịch</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/CssDuyDumStomaty/TuarTrangchu.css">
+    <link rel="stylesheet" href="assets/css/css.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+</head>
+<style>
+    
+    
+</style>
+<body>
+
+    <section class="destinations-section">
+        <div class="container">
+            <div class="destinations-grid">
+                <?php foreach ($dataDestination as $value) { ?>
+                    <div class="location-card">
+                        <div class="card-image">
+                            <div class="location-card_hover">
+                                <a href="" class="location-card_hoverbtn"> Views </a>
+                            </div>
+                            <img src="assets/upload/image_Tuar/tuarimage_cac_hoat_dong_1.webp" alt="Annapurna">
+                            <span class="trips-tag"><?= $value->soluong_tuar ?> Trips</span>
+                        </div>
+                        <div class="beautifulstreet-bottom_sanpham-bottom">
+                            <div class="beautifulstreet-bottom_sanpham-bottom_link">
+                                <a href="#">
+                                    <h6><?= $value->title ?></h6>
+                                </a>
+                                <span class="span-link"><i class='bx bx-right-arrow-alt'></i></span>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-package" style="position: relative; " style=" background-image: url('<?= IMAGECHUNG ?>Bg-sp.png');">
+        <img src="<?= IMAGECHUNG ?>Plane-topmay_bayspham.png" alt="" class="setinterval_maybay" id="setinterval_maybay" style="position: absolute; left: 5%; width: 300px;">
+        <img src="<?= IMAGECHUNG ?>Essential-Tips-top-left.png" id="image" class="Essential-Tips_imgtop-package" alt="" style="position: absolute;top: 15%; right: 5%; ">
+        <img src="<?= IMAGECHUNG ?>Essential-Tips-bottom-right.png" id="image2" class="Essential-Tips_imgbottom" alt="">
+        <div class="content service-package">
+            <button id="btnleft_service" class="service-package_2-link_btn-dieuhuwong1-left"><i class='bx bx-chevron-left'></i></button>
+            <button id="btnright_service" class="service-package_2-link_btn-dieuhuwong2-right"><i class='bx bx-chevron-right'></i></button>
+            <div class="service-package_1">
+                <div>
+                    <span class="service-package_1_1-content-text ">Chuyến Tham Quan Tuyệt Vời</span>
+                    <h2 class="service-package_1_2-content-text ">Gói du lịch tốt nhất</h2>
+                    <p class="service-package_1_3-content-text ">Gói du lịch tốt nhất của chúng tôi đã được thiết kế đặc biệt để mang đến cho bạn trải nghiệm tuyệt vời nhất.</p>
+                </div>
+            </div>
+            <div class="service-package_2">
+                <div class="content_package_2">
+                    <?php foreach ($dataTuar as $value) { ?>
+                        <a href="">
+                            <div class="service-package2-sanpam">
+                                <div class="service-package2-sanpam_img">
+                                    <img src="<?= $value->image ?>" alt="" class="service-package2-sanpam_img1">
+                                </div>
+                                <div class="service-package2-sanpam_input-text">
+                                    <div class="product-name">
+                                        <a href="" class="product-name_a">
+                                            <h2><?= $value->title ?></h2>
+                                        </a>
+                                    </div>
+                                    <div class="service-package2-sanpam_input-text_wap">
+                                        <div class="wap-left">
+                                            <div class="wap-left_position">
+                                                <span class="wap-left_position_span-icon ">
+                                                    <i class="bx bx-location-plus"></i>
+                                                </span>
+                                                <div class="link-position">
+                                                    <a href="" class="link-position_1">Everest</a>
+                                                    <a href="" class="link-position_1">India</a>
+                                                    <a href="" class="link-position_1">Maldives</a>
+                                                </div>
+                                            </div>
+                                            <div class="wap-left_date">
+                                                <span class="wap-left_date_span-icon">
+                                                    <i class="bx bx-calendar"></i>
+                                                </span>
+                                                <span class="wap-left_date-spandate">
+                                                    <?= $value->time_days ?> Ngày - <?= $value->time_days - 1  ?> Đêm
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="wap-right">
+                                            <span class="budget"><?= number_format($value->price) ?></span>
+                                            <span class="budget$">đ</span>
+                                        </div>
+                                    </div>
+                                    <div class="service-package2-sanpam_input-text_link">
+                                        <a href="">Xem Chi Tiết </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    <?php } ?>
+                </div>
+            </div>
+            <div class="service-package_2-link">
+                <a a href="<?= BASE_URL ?>?page=blog" class="service-package_2-link">Đọc Thêm </a>
+            </div>
+            <script src="<?= Js_DuyDum ?>jstouar.js"></script>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Main container for the reset password form */
+        .reset-password-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 800px;
+        }
+
+        /* Inner content layout using Flexbox */
+        .reset-password-content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 40px;
+            gap: 40px;
+            align-items: center;
+        }
+
+        /* Left section for text */
+        .text-section {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .text-section h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .text-section p {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* Right section for the form */
+        .form-section {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        .form-group input::placeholder {
+            color: #aaa;
+        }
+
+        /* Reset button styling */
+        .reset-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #ff6600;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .reset-button:hover {
+            background-color: #e65c00;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .reset-password-content {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            .text-section, .form-section {
+                min-width: unset;
+                width: 100%;
+            }
+
+            .reset-password-container {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="reset-password-container">
+        <div class="reset-password-content">
+            <div class="text-section">
+                <h1>Reset your password</h1>
+                <p>Lost your password? Please enter your username or email address. You will receive a link to create a new password via email.</p>
+            </div>
+            <div class="form-section">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="email_username">Email or username*</label>
+                        <input type="text" id="email_username" name="email_username" placeholder="duy@gmail.com" required>
+                    </div>
+                    <button type="submit" class="reset-button">RESET PASSWORD</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

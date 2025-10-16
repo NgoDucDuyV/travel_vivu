@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm Nhân Viên Mới</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Thêm Nhân Viên Mới</h2>
+        <form id="add-employee-form">
+            <div class="form-group">
+                <label for="employee-id">Mã số nhân viên:</label>
+                <input type="text" id="employee-id" name="employee-id" required>
+            </div>
+            <div class="form-group">
+                <label for="full-name">Họ và tên:</label>
+                <input type="text" id="full-name" name="full-name" required>
+            </div>
+            <div class="form-group">
+                <label for="position">Chức vụ:</label>
+                <input type="text" id="position" name="position" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Số điện thoại:</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="start-date">Ngày vào làm:</label>
+                <input type="date" id="start-date" name="start-date" required>
+            </div>
+            <button type="submit" class="submit-btn">Thêm Nhân Viên</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('add-employee-form');
+
+            form.addEventListener('submit', function(event) {
+                // Ngăn chặn form gửi dữ liệu theo cách thông thường
+                event.preventDefault();
+
+                // Lấy các giá trị từ form
+                const employeeId = document.getElementById('employee-id').value;
+                const fullName = document.getElementById('full-name').value;
+                const position = document.getElementById('position').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const startDate = document.getElementById('start-date').value;
+
+                // Tạo một đối tượng chứa thông tin nhân viên
+                const newEmployee = {
+                    id: employeeId,
+                    name: fullName,
+                    position: position,
+                    email: email,
+                    phone: phone,
+                    startDate: startDate
+                };
+
+                // Ghi lại thông tin nhân viên đã nhập vào console để kiểm tra
+                console.log('Thông tin nhân viên mới:', newEmployee);
+
+                // Hiển thị thông báo thành công
+                alert('Thêm nhân viên thành công!');
+
+                // Đặt lại form (xóa tất cả dữ liệu đã nhập)
+                form.reset();
+            });
+        });
+    </script>
+</body>
+</html>

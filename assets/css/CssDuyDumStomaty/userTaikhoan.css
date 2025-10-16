@@ -1,0 +1,211 @@
+ /* Form Group (for labels and inputs) */
+        .user-avatar_taikhoan{
+            width: 150px;
+            height: 150px;
+            border-radius:50%;
+        }
+        
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+
+        .form-group label {
+            display: block; /* Make label take full width */
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        /* Input Fields */
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: calc(100% - 22px); /* Full width minus padding and border */
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        /* Input Focus State */
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="password"]:focus {
+            outline: none; /* Remove default outline */
+            border-color: #007bff; /* Blue border on focus */
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Light blue shadow */
+        }
+
+        /* Required Field Asterisk */
+        .required-star {
+            color: red;
+            margin-left: 2px;
+        }
+
+        /* Profile Picture Section */
+        .profile-picture {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-picture img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%; /* Make it round */
+            background-color: #ddd; /* Placeholder background */
+            object-fit: cover; /* Ensure image covers the area */
+            border: 1px solid #ccc;
+        }
+
+        .user-account_btn button{
+            background-color: #f7941d; /* Orange color */
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        
+        .user-account_btn button:hover{
+            background-color: #e08311; /* Slightly darker orange on hover */    
+        }
+        
+
+        /* Toggle Switch Container */
+        .toggle-switch {
+            display: flex;
+            align-items: center; /* Vertically align items */
+            margin-bottom: 20px;
+            justify-content: space-between; /* Space out label and switch */
+        }
+
+        .toggle-switch label:first-child { /* Specific label for the toggle text */
+            margin-right: 15px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* The switch - the box around the slider */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s; /* For Safari/Chrome */
+            transition: .4s;
+            border-radius: 34px; /* Rounded background */
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 50%; /* Rounded circle */
+        }
+
+        /* When the checkbox is checked, add the orange background */
+        input:checked + .slider {
+            background-color: #f7941d; /* Orange color from the image */
+        }
+
+        /* Focus state for the slider */
+        input:focus + .slider {
+            box-shadow: 0 0 1px #f7941d;
+        }
+
+        /* Move the slider circle when checked */
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders (redundant with .slider but good for clarity) */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        /* Password Fields Section - Hidden by default */
+        .password-fields {
+            max-height: 0; /* Initially hidden */
+            overflow: hidden; /* Hide overflowing content */
+            transition: max-height 0.5s ease-out; /* Smooth collapse transition */
+        }
+
+        /* Class to show password fields */
+        .password-fields.show {
+            max-height: 500px; /* Sufficient height to show content (adjust if more fields are added) */
+            transition: max-height 0.5s ease-in; /* Smooth expand transition */
+        }
+
+        /* Small text below password fields */
+        .password-fields p {
+            font-size: 14px;
+            color: #777;
+            margin-top: -10px; /* Adjust spacing with previous input */
+            margin-bottom: 15px;
+            text-align: left; /* Align this text to the left */
+        }
+
+        /* Button Container */
+        .button-container {
+            text-align: center;
+            margin: 30px 0px;
+        }
+
+        /* Save Button Styles */
+        .save-button {
+            background-color: #f7941d; /* Orange color */
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s ease; /* Smooth hover effect */
+        }
+
+        .save-button:hover {
+            background-color: #e08311; /* Slightly darker orange on hover */
+        }
+
+        .profile-picture from{
+            display: flex;
+            flex-direction: column;
+            align-itemS:Center; 
+        }

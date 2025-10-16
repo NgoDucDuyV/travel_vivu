@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhutan Cultural Tour: Explore the Himalayan Kingdom</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff6a00;
+            --text-color: #333;
+            --secondary-text-color: #666;
+            --border-color: #e0e0e0;
+            --bg-color: #f7f7f7;
+            --white-color: #fff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .page-title-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .days-label {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            font-weight: 700;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            text-align: center;
+            line-height: 1.2;
+        }
+        .days-label small {
+            font-size: 0.8rem;
+            font-weight: 400;
+            display: block;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .tour-details {
+            background-color: var(--white-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .tour-image {
+            position: relative;
+        }
+
+        .tour-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .tour-image .image-count {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: var(--white-color);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .tour-nav {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tour-nav a {
+            padding: 15px 20px;
+            text-decoration: none;
+            color: var(--secondary-text-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tour-nav a.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            margin-bottom: -1px;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .tab-content p {
+            margin-bottom: 15px;
+            color: var(--secondary-text-color);
+        }
+
+        .highlight-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        .highlight-list li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .highlight-list li::before {
+            content: '•';
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .itinerary-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .itinerary-header .expand-all {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .itinerary-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+
+        .itinerary-item .day-number {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+
+        .itinerary-item h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .itinerary-item .arrow {
+            margin-left: auto;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .sidebar {
+            background-color: var(--white-color);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .price-box {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        .price-box .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .price-box .price small {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--secondary-text-color);
+        }
+
+        .btn-check {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border: none;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-check:hover {
+            background-color: #e05e00;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: var(--secondary-text-color);
+        }
+
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .sidebar-section {
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+        .sidebar-section:first-of-type {
+            border-top: none;
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .sidebar-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .sidebar-item .icon {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-right: 10px;
+            width: 25px;
+            text-align: center;
+            padding-top: 2px;
+        }
+        
+        .sidebar-item .label {
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .sidebar-item .value {
+            color: var(--secondary-text-color);
+            font-size: 0.9rem;
+        }
+
+        /* Content for other tabs */
+        .itinerary-section .itinerary-day-details {
+            display: none;
+            padding-left: 45px; /* Căn lề cho nội dung */
+            margin-top: 10px;
+            border-left: 1px solid var(--border-color);
+        }
+
+        .cost-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .cost-list li {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .cost-list h4 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+            cursor: pointer;
+        }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        .faq-answer {
+            display: none;
+            padding-top: 10px;
+            color: var(--secondary-text-color);
+        }
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .main-content {
+                flex-direction: row;
+                gap: 25px;
+            }
+
+            .tour-details {
+                flex: 2;
+            }
+
+            .sidebar {
+                flex: 1;
+                max-width: 350px;
+                position: sticky;
+                top: 20px;
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="page-title-section">
+        <h1 class="page-title">Bhutan Cultural Tour: Explore the Himalayan Kingdom</h1>
+        <div class="days-label">
+            5<br>
+            <small>Ngày</small>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="tour-details">
+            <div class="tour-image">
+                <img src="assets/upload/image_Tuar/service-package2-sanpam_img3.jpg" alt="Bhutan Cultural Tour">
+                <div class="image-count">
+                    1/4 Hình ảnh
+                </div>
+            </div>
+
+            <div class="tour-nav">
+                <a href="#" class="tab-link active" data-tab="overview">Tổng quan</a>
+                <a href="#" class="tab-link" data-tab="itinerary">Hành trình</a>
+                <a href="#" class="tab-link" data-tab="cost">Chi phí</a>
+                <a href="#" class="tab-link" data-tab="faqs">FAQs</a>
+                <a href="#" class="tab-link" data-tab="map">Map</a>
+            </div>
+
+            <div class="tab-content-container">
+                <div id="overview" class="tab-content active">
+                    <div class="overview-section">
+                        <h2 class="section-title">Overview</h2>
+                        <p>Travel is the movement of people between relatively distant geographical locations, and can involve travel by foot, bicycle, automobile, train, boat, bus, airplane, or other means, with or without luggage, and can be one way or round trip. Travel can also include relatively short stays between successive movements.</p>
+                        <p>The origin of the word 'travel' is most likely lost to history. The term 'travel' may originate from the Old French word travail, which means 'work'. According to the Merriam Webster dictionary, the first known use of the word travel was in the 14th century.</p>
+                    </div>
+
+                    <div class="highlights-section">
+                        <h2 class="section-title">Highlights</h2>
+                        <ul class="highlight-list">
+                            <li>Trek to the world famous Everest Base Camp</li>
+                            <li>Enjoy the amazing view of the Himalayas from Kala Patthar</li>
+                            <li>Travel through the Sherpa villages of Namche, Khumjung, Khunde, and Dingboche</li>
+                            <li>Visit Tengboche the biggest and oldest monastery n the region.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="itinerary" class="tab-content">
+                    <div class="itinerary-section">
+                        <div class="itinerary-header">
+                            <h2 class="section-title">Hành trình</h2>
+                            <span class="expand-all">Mở rộng tất cả</span>
+                        </div>
+                        
+                        <div class="itinerary-item" data-day="day1">
+                            <span class="day-number">Ngày 1</span>
+                            <h3>: Kathmandu to Pokhara (By flight or Bus), the city of Lakes, adventures</h3>
+                            <span class="arrow"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div id="day1-content" class="itinerary-day-details">
+                            <p>Sáng: Di chuyển từ Kathmandu đến Pokhara bằng máy bay hoặc xe buýt. Nhận phòng khách sạn, nghỉ ngơi.</p>
+                            <p>Chiều: Tự do khám phá thành phố Pokhara, dạo quanh hồ Fewa, ngắm hoàng hôn.</p>
+                        </div>
+
+                        <div class="itinerary-item" data-day="day2">
+                            <span class="day-number">Ngày 2</span>
+                            <h3>: Pokhara to Kathmandu</h3>
+                            <span class="arrow"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div id="day2-content" class="itinerary-day-details">
+                            <p>Sáng: Ăn sáng, sau đó tham gia các hoạt động như chèo thuyền trên hồ, thăm đền Tal Barahi.</p>
+                            <p>Chiều: Quay trở lại Kathmandu bằng máy bay hoặc xe buýt. Kết thúc tour.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="cost" class="tab-content">
+                    <h2 class="section-title">Chi phí</h2>
+                    <ul class="cost-list">
+                        <li>
+                            <h4>Bao gồm</h4>
+                            <p>Vé máy bay khứ hồi nội địa (Kathmandu - Pokhara), 4 đêm khách sạn 4 sao, bữa ăn theo lịch trình, hướng dẫn viên nói tiếng Anh, phương tiện di chuyển.</p>
+                        </li>
+                        <li>
+                            <h4>Không bao gồm</h4>
+                            <p>Vé máy bay quốc tế, chi phí visa, tiền tip, chi tiêu cá nhân, bảo hiểm du lịch, các bữa ăn không có trong lịch trình.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="faqs" class="tab-content">
+                    <h2 class="section-title">FAQs</h2>
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Visa có cần thiết không?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Có, bạn cần có visa để nhập cảnh Bhutan. Chúng tôi sẽ hỗ trợ bạn trong quá trình xin visa du lịch.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Thời tiết ở Bhutan vào tháng 4 như thế nào?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Tháng 4 là một trong những tháng có thời tiết đẹp nhất ở Bhutan, với nhiệt độ dễ chịu và bầu trời trong xanh, rất lý tưởng cho các hoạt động ngoài trời.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="map" class="tab-content">
+                    <h2 class="section-title">Map</h2>
+                    <p>Bản đồ sẽ được cung cấp chi tiết hơn khi bạn xác nhận đặt tour. Dưới đây là bản đồ chung của Bhutan để bạn tham khảo.</p>
+                    <img src="https://i.imgur.com/K3y7K95.png" alt="Map of Bhutan" style="width: 100%; border-radius: 8px;">
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="price-box">
+                <div class="price">
+                    2,500,000₫ <small>/ Adult</small>
+                </div>
+                <button class="btn-check">Kiểm tra</button>
+                <div class="contact-info">
+                    Cần trợ giúp về việc đặt chỗ? <a href="#">Gửi tin nhắn cho chúng tôi</a>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-item">
+                    <i class="fas fa-bed icon"></i>
+                    <div>
+                        <div class="label">Accommodation</div>
+                        <div class="value">4 Stars Hotels</div>
+                    </div>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-plane icon"></i>
+                    <div>
+                        <div class="label">Transportation</div>
+                        <div class="value">Bus, Airlines</div>
+                    </div>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-mountain icon"></i>
+                    <div>
+                        <div class="label">Maximum Altitude</div>
+                        <div class="value">5,416 metres</div>
+                    </div>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-map-marker-alt icon"></i>
+                    <div>
+                        <div class="label">Departure City</div>
+                        <div class="value">Kathmandu</div>
+                    </div>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-calendar-alt icon"></i>
+                    <div>
+                        <div class="label">Best Season</div>
+                        <div class="value">Feb, Mar, Apr & May</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-item">
+                    <i class="fas fa-check-circle icon"></i>
+                    <div>
+                        <div class="label">Tour Availability</div>
+                        <div class="value">Available</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-item">
+                    <i class="fas fa-utensils icon"></i>
+                    <div>
+                        <div class="label">Meals</div>
+                        <div class="value">All meals during the trip</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-item">
+                    <i class="fas fa-language icon"></i>
+                    <div>
+                        <div class="label">Language</div>
+                        <div class="value">English, Spanish, French, Chinese</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-item">
+                    <i class="fas fa-clock icon"></i>
+                    <div>
+                        <div class="label">Walking Hours</div>
+                        <div class="value">5-8 Hours</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-item">
+                    <i class="fas fa-wifi icon"></i>
+                    <div>
+                        <div class="label">Wifi</div>
+                        <div class="value">Available</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-item">
+                    <i class="fas fa-user icon"></i>
+                    <div>
+                        <div class="label">Minimum Age</div>
+                        <div class="value">12</div>
+                    </div>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-user icon"></i>
+                    <div>
+                        <div class="label">Maximum Age</div>
+                        <div class="value">65</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabLinks = document.querySelectorAll('.tour-nav .tab-link');
+        const tabContents = document.querySelectorAll('.tab-content-container .tab-content');
+
+        tabLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const tabId = this.getAttribute('data-tab');
+
+                // Ẩn tất cả nội dung tab
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Xóa trạng thái active của tất cả các link
+                tabLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                // Hiển thị nội dung tab được chọn và đặt trạng thái active cho link
+                document.getElementById(tabId).classList.add('active');
+                this.classList.add('active');
+            });
+        });
+
+        // Chức năng mở/đóng chi tiết hành trình
+        const itineraryItems = document.querySelectorAll('.itinerary-item');
+        itineraryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const dayId = this.getAttribute('data-day');
+                const content = document.getElementById(dayId + '-content');
+                if (content) {
+                    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                    const icon = this.querySelector('.arrow i');
+                    if (icon) {
+                        icon.classList.toggle('fa-plus');
+                        icon.classList.toggle('fa-minus');
+                    }
+                }
+            });
+        });
+
+        // Chức năng mở/đóng FAQs
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+
+        // Chức năng nút kiểm tra
+        const checkButton = document.querySelector('.btn-check');
+        checkButton.addEventListener('click', function() {
+            alert('Chức năng kiểm tra đang được phát triển.');
+        });
+        
+        // Chức năng mở rộng tất cả
+        const expandAllButton = document.querySelector('.expand-all');
+        expandAllButton.addEventListener('click', function() {
+            alert('Chức năng mở rộng tất cả đang được phát triển.');
+        });
+    });
+</script>
+</body>
+</html>

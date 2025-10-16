@@ -1,0 +1,709 @@
+  /* ================================================= */
+/* CSS cho Trang Chi tiết Bài viết (post.php) */
+/* ================================================= */
+/* body{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+} */
+:root{
+    --border-coloer:#FFCCB1;
+}
+
+.postsection{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    margin: 20px 0px;
+    padding: 0px 10px;
+}
+.main-content.single-post-content {
+    display: block;
+    padding-top: 30px;
+    padding-bottom: 150px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.post-detail {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow:  1px 1px 50px 10px #ffccb14a;
+    padding: 30px;
+    margin-bottom: 30px;
+    flex:3;
+}
+
+.post-detail-image {
+    margin-bottom: 25px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.post-detail-image img {
+    width: 100%;
+    height: auto;
+    max-height: 550px;
+    object-fit: cover;
+    display: block;
+}
+
+.post-detail-title {
+    font-size: 2.5em;
+    color: #222;
+    margin-top: 0;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.post-meta.single-post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+    font-size: 1em;
+    color: #777;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.post-meta.single-post-meta span {
+    display: flex;
+    align-items: center;
+    margin-right: 0;
+}
+
+.post-meta.single-post-meta i {
+    color: #ff5722;
+    margin-right: 8px;
+}
+
+.post-detail-content {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 40px;
+}
+
+.post-detail-content p {
+    margin-bottom: 1em;
+}
+
+.profile-thumb{
+    width: 100px;
+    height: 100px;
+    border-radius:20px;     
+}
+
+/* ================================================= */
+/* CSS cho Phần Bình luận */
+/* ================================================= */
+
+.comments-section {
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    border-top: 2px solid #ffccb1;
+}
+
+.comments-section h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.comment-box{
+    height: 400px;
+    overflow: auto;
+    padding: 15px;
+    cursor: grab;
+    user-select: none;
+    scroll-behavior: smooth;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 50px;
+}
+
+.comment-box::-webkit-scrollbar {
+    display: none;
+}
+
+.comments-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+}
+
+.comments-list li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.comments-list li strong {
+    color: #333;
+    font-size: 1.1em;
+}
+
+.comments-list li span {
+    font-size: 0.85em;
+    color: #999;
+    margin-left: 10px;
+}
+
+.comments-list li p {
+    font-size: 1em;
+    color: #555;
+    margin-top: 10px;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+.comments-section > p {
+    font-style: italic;
+    color: #777;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Form Bình luận */
+.comment-form h4 {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ff7b00;
+    padding-bottom: 10px;
+}
+
+.comment-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-form label {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.comment-form input[type="text"],
+.comment-form textarea {
+    width: calc(100% - 24px);
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.comment-form input[type="text"]:focus,
+.comment-form textarea:focus {
+    border-color: #ff5722;
+}
+
+.comment-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.comment-form button[type="submit"] {
+    background-color: #505050;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.comment-form button[type="submit"]:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+/* ================================================= */
+/* Responsive cho Trang Chi tiết Bài viết */
+/* ================================================= */
+@media (max-width: 768px) {
+    .post-detail {
+        padding: 20px;
+    }
+
+    .post-detail-title {
+        font-size: 2em;
+    }
+
+    .post-meta.single-post-meta {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .post-detail-content {
+        font-size: 1em;
+    }
+
+    .comments-section {
+        padding: 20px;
+    }
+
+    .comments-section h3 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .post-detail-title {
+        font-size: 1.7em;
+    }
+}
+
+
+/* binh luan */
+
+/* Wrapper để chứa thẻ bình luận, giúp căn giữa và kiểm soát chiều rộng */
+.comment-card-wrapper {
+    width: 100%;
+    max-width: 700px; /* Giới hạn chiều rộng tối đa của khung bình luận */
+    margin: 50px auto;
+    background-color:#f9f9f9; /* Căn giữa */
+}
+
+/* Kiểu dáng chính của khung bình luận */
+.comment-card-exact {
+    background-color: #f4f4f4;
+    border-radius: 6px; /* Bo góc nhẹ */
+    padding: 20px;
+    display: flex;
+    gap: 20px; /* Khoảng cách giữa avatar và nội dung */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05); /* Đổ bóng nhẹ */
+    box-sizing: border-box;
+}
+
+/* Avatar */
+.comment-avatar-exact {
+    display: flex;
+    width: 100px; /* Kích thước avatar */
+    height: 100px;
+    overflow: hidden;
+    background-color: #e0e0e0; /* Màu xám của placeholder */
+    border-radius: 50%; /* Hình tròn */
+    flex-shrink: 0; /* Ngăn không cho avatar bị co lại */
+}
+
+.comment-avatar-exact *{
+    margin: auto;
+    width: 100%;
+    height: 100%;
+ /* Ngăn không cho avatar bị co lại */
+}
+/* Phần nội dung bình luận (bên phải avatar) */
+.comment-content-exact {
+    flex-grow: 1; /* Cho phép nội dung chiếm hết không gian còn lại */
+    text-align: left;
+}
+
+/* Phần meta (ngày và nút Reply) */
+.comment-meta-exact {
+    display: flex;
+    justify-content: space-between; /* Đẩy ngày sang trái, reply sang phải */
+    align-items: center;
+    margin-bottom: 10px; /* Khoảng cách với tên tác giả */
+}
+
+.comment-date-exact {
+    display: flex;
+    align-items: center;
+    font-size: 13px; /* Kích thước chữ ngày */
+    color: #666666; /* Màu xám đậm */
+}
+
+.icon-calendar-exact {
+    width: 14px; /* Kích thước icon lịch */
+    height: 14px;
+    margin-right: 5px;
+    color: #666666; /* Màu icon khớp với chữ */
+}
+
+.comment-reply-exact {
+    display: flex;
+    align-items: center;
+    color: #337ab7; /* Màu xanh của Reply */
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold; /* Chữ Reply có vẻ đậm hơn */
+    transition: color 0.2s ease;
+}
+
+.comment-reply-exact:hover {
+    color: #23527c; /* Màu đậm hơn khi hover */
+    text-decoration: underline;
+}
+
+.icon-reply-exact {
+    width: 14px; /* Kích thước icon Reply */
+    height: 14px;
+    margin-left: 5px;
+    color: #337ab7; /* Màu icon khớp với chữ Reply */
+}
+
+/* Tên tác giả */
+.comment-author-exact {
+    margin: 0 0 10px 0;
+    font-size: 15px; /* Kích thước chữ tên */
+    color: #333333; /* Màu chữ đen đậm */
+    font-weight: bold;
+}
+
+/* Nội dung bình luận */
+.comment-text-exact {
+    margin: 0 0 15px 0;
+    font-size: 14px; /* Kích thước chữ nội dung */
+    line-height: 1.6;
+    color: #555555; /* Màu chữ nội dung */
+    word-wrap: break-word;
+}
+
+/* Trạng thái chờ duyệt */
+.comment-moderation-exact {
+    font-size: 13px; /* Kích thước chữ trạng thái */
+    color: #888888; /* Màu xám của chữ */
+    font-style: italic; /* Chữ in nghiêng */
+    /* Không có nền hay viền, chỉ có chữ in nghiêng */
+    margin: 0;
+}
+
+/* Media Queries cho Responsive (tùy chỉnh cho màn hình nhỏ hơn) */
+@media (max-width: 600px) {
+    .comment-card-exact {
+        flex-direction: column; /* Xếp chồng các phần tử trên màn hình nhỏ */
+        align-items: flex-start;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .comment-avatar-exact {
+        margin-bottom: 5px; /* Khoảng cách nhỏ khi xếp chồng */
+    }
+
+    .comment-meta-exact {
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        margin-bottom: 10px;
+    }
+
+    .comment-author-exact {
+        margin-top: 5px;
+    }
+}
+
+
+
+
+/*  */
+
+        /* General Body and Container Styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            /* Add some padding around the content */
+            background-color: #f8f8f8;
+            /* Light background as seen in image */
+            color: #333;
+            /* display: flex;
+            flex-direction: row; */
+        }
+
+        .single-post-content {
+            display: flex;
+            flex-wrap: wrap;
+            /* Cho phép các cột xuống hàng trên màn hình nhỏ */
+            gap: 30px;
+            padding-top: 30px;
+            padding-bottom: 50px;
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        .content-wrapper {
+            max-width: 100%;
+            /* Adjust as needed to match image width */
+            margin: 40px auto;
+            /* Center the content block */
+            background-color: #fff;
+            padding: 40px;
+            /* Inner padding for the content */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+            /* Subtle shadow */
+            border-radius: 8px;
+            /* Slightly rounded corners */
+            display: flex;
+            flex-direction: row;
+        }
+
+        /* Post Content Styling */
+        .post-content p {
+            margin-bottom: 1em;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .post-content h2 {
+            font-size: 2em;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            color: #333;
+            line-height: 1.2;
+        }
+
+        /* Testimonial Block */
+        .testimonial-block {
+            background-color: #fcfcfc;
+            /* Very light background for the block */
+            border-left: 5px solid #ff9900;
+            /* Orange border on the left */
+            padding: 25px 30px;
+            margin: 3em 0;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+            /* Subtle shadow for depth */
+        }
+
+        .testimonial-block .quote-icon {
+            font-family: serif;
+            font-size: 5em;
+            color: #ff9900;
+            position: absolute;
+            top: 5px;
+            left: 15px;
+            opacity: 0.2;
+            /* Make it subtle */
+            line-height: 1;
+        }
+
+        .testimonial-block .quote-text {
+            font-size: 1.2em;
+            font-style: italic;
+            color: #444;
+            margin-bottom: 15px;
+            position: relative;
+            /* Ensure text is above quote icon */
+            z-index: 1;
+        }
+
+        .testimonial-block .quote-author {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .testimonial-block .quote-author hr {
+            flex-grow: 1;
+            border: none;
+            border-top: 1px solid #ff9900;
+            /* Orange rule */
+            margin-right: 15px;
+            width: 60px;
+            /* Fixed width for the rule */
+        }
+
+        .testimonial-block .quote-author .author-name {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            /* Responsive grid */
+            gap: 20px;
+            /* Space between images */
+            margin: 3em 0;
+            overflow: hidden;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 5px;
+            /* Slightly rounded corners for images */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow for images */
+        }
+
+        /* Post Meta (Tags and Share) */
+        .post-meta {
+            margin-top: 4em;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            /* Light gray top border */
+        }
+
+        .post-meta .meta-divider {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 30px 0;
+        }
+
+        .tags-share {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            /* Allow wrapping on smaller screens */
+            margin-bottom: 20px;
+        }
+
+        .tags,
+        .share-icons {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            /* Add margin for wrapping */
+        }
+
+        .tags span,
+        .share-icons span {
+            font-weight: bold;
+            margin-right: 10px;
+            color: #444;
+        }
+
+        .tag-item {
+            background-color: #eee;
+            color: #666;
+            padding: 8px 15px;
+            border-radius: 20px;
+            /* Pill shape */
+            text-decoration: none;
+            margin-right: 8px;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .tag-item:hover {
+            background-color: #ddd;
+            color: #333;
+        }
+
+        .share-icon {
+            font-size: 1.2em;
+            color: #666;
+            margin-left: 15px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .share-icon:hover {
+            color: #ff9900;
+            /* Orange hover effect for share icons */
+        }
+
+        /* Post Navigation */
+        .post-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .post-navigation>*:hover{
+            background-color:#0000;
+        }
+
+        .nav-prev,
+        .nav-next {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #555;
+            font-size: 1.1em;
+        }
+
+        .nav-prev .profile-thumb {
+            width: 100px;
+            height:100px;
+            border-radius: 20px;
+            margin-right: 15px;
+            object-fit: cover;
+            border: 1px solid #eee;
+        }
+
+        .nav-prev .nav-label {
+            font-weight: bold;
+        }
+
+        .nav-center .fas {
+            font-size: 1.5em;
+            color: #999;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                padding: 20px;
+                margin: 20px auto;
+            }
+
+            .image-gallery {
+                grid-template-columns: 1fr;
+                /* Stack images on small screens */
+            }
+
+            .tags-share {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .tags,
+            .share-icons {
+                margin-bottom: 15px;
+            }
+
+            .share-icons {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .testimonial-block .quote-icon {
+                font-size: 4em;
+            }
+
+            .post-navigation {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-center {
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+        }
+
+
+        .image-gallery{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .image-gallery img{
+            max-width: 200px;
+            width: 100%;
+
+        }

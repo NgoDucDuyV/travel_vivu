@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #f0f4f8;
+        margin: 0; padding: 0;
+        color: #333;
+    }
+    header {
+        background-color: #0056b3;
+        color: #fff;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    header h1 {
+        margin: 0;
+        font-weight: 600;
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+    nav a {
+        color: #cce4ff;
+        margin-left: 20px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+    nav a:hover {
+        color: #fff;
+    }
+
+    main {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 0 20px 60px;
+    }
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
+        gap: 25px;
+    }
+    .product-card {
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        transition: box-shadow 0.3s ease;
+        text-align: center;
+    }
+    .product-card:hover {
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .product-name {
+        font-weight: 600;
+        font-size: 1.15rem;
+        margin-bottom: 10px;
+        color: #222;
+        min-height: 48px;
+    }
+    .product-price {
+        color: #e03e2f;
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 18px;
+    }
+    .product-link {
+        display: inline-block;
+        padding: 8px 18px;
+        background-color: #0056b3;
+        color: #fff;
+        border-radius: 30px;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 2px 6px rgba(0,86,179,0.4);
+        transition: background-color 0.3s ease;
+    }
+    .product-link:hover {
+        background-color: #003d80;
+        box-shadow: 0 4px 12px rgba(0,61,128,0.5);
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px 0;
+        background: #0056b3;
+        color: #cce4ff;
+        font-weight: 500;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+    }
+
+    /* Responsive */
+    @media(max-width: 600px) {
+        header {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 20px;
+        }
+        nav {
+        margin-top: 10px;
+        }
+        main {
+        margin: 30px 15px 80px;
+        }
+    }
+
+/* product */
+

@@ -1,0 +1,625 @@
+body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .main-container {
+            display: flex;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 200px 0 ;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 0 0 20px 0;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 15px;
+            color: #343a40;
+        }
+
+        .clear-filters {
+            font-size: 0.9rem;
+            color: #fd7e14;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .filter-group {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .filter-group:last-child {
+            border-bottom: none;
+        }
+
+        .filter-group-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 10px 0;
+        }
+
+        .filter-group-header h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .filter-group-header .fa-chevron-up,
+        .filter-group-header .fa-chevron-down {
+            color: #6c757d;
+            transition: transform 0.2s;
+        }
+
+        .filter-group.closed .filter-group-header .fa-chevron-up {
+            display: none;
+        }
+
+        .filter-group.closed .filter-group-header .fa-chevron-down {
+            display: inline-block;
+        }
+
+        .filter-group:not(.closed) .filter-group-header .fa-chevron-down {
+            display: none;
+        }
+
+        .filter-group-content {
+            display: block;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .filter-group.closed .filter-group-content {
+            display: none;
+        }
+
+        .filter-group-content-inner {
+            max-height: 150px;
+            overflow-y: auto;
+            padding-right: 10px;
+
+            /* Ẩn scrollbar nhưng vẫn cuộn được */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE và Edge cũ */
+        }
+        .filter-group-content-inner::-webkit-scrollbar {
+            display: none; /* Chrome, Safari */
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .filter-option label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .filter-option input[type="checkbox"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .filter-option label span {
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+
+        .show-all-filters {
+            font-size: 0.85rem;
+            color: #fd7e14;
+            text-decoration: none;
+            cursor: pointer;
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* Range Slider */
+        .range-slider-container {
+            padding: 10px 0;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 5px;
+            background: #e9ecef;
+            outline: none;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #fd7e14;
+            cursor: pointer;
+        }
+
+        .price-range {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+
+        /* Main content */
+        .content {
+            flex: 1;
+        }
+        .content-header h1 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin: 0;
+            color: #343a40;
+        }
+
+        /* Dropdown sắp xếp */
+        .sort-by-dropdown {
+            position: absolute;
+            right: 0px;
+            width: 200px;
+        }
+
+        .sort-by-dropdown .dropdown-header {
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            padding: 10px 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #495057;
+        }
+
+        .sort-by-dropdown .selected-option {
+            color: #fd7e14;
+            font-weight: 500;
+        }
+
+        .sort-by-dropdown .toggle-icon {
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .sort-by-dropdown.open .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .sort-by-dropdown .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 5px);
+            right: 0;
+            width: 250px;
+            background-color: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 10px;
+            display: none;
+        }
+
+        .sort-by-dropdown.open .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 8px 12px;
+            text-decoration: none;
+            color: #495057;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f1f3f5;
+        }
+
+        .dropdown-item.active,
+        .dropdown-item.highlighted {
+            color: #fd7e14;
+            font-weight: 500;
+        }
+
+        .dropdown-item.active {
+            background-color: #f0f4ff;
+        }
+
+        .dropdown-group {
+            padding: 10px 0;
+        }
+
+        .group-title {
+            display: block;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            color: #888;
+            font-weight: 500;
+        }
+
+        /* Trip card */
+
+        .trip-list{
+            margin-top: 20px;
+        }
+        .trip-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition:var(--transition);
+        }
+        .trip-card:hover{
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .trip-card-top-section {
+            display: flex;
+            position: relative;
+        }
+
+        .trip-card-image-container {
+            width: 300px;
+            height: 300px;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trip-card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px 0 0 0;
+        }
+
+        .trip-card-image-container .badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: #fd7e14;
+            color: #fff;
+            font-size: 0.8em;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .trip-card-image-container>a .heart-icon_no {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 30px;
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        .trip-card-image-container>a:hover{
+            background-color:#ffffff00;
+        }
+
+        .trip-card-image-container>a>i:hover{
+            font-size: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .trip-card-image-container> .heart-icon_yes {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 30px;
+            color: #ff0000;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        .trip-card-content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .trip-content-main {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .trip-info-left {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .trip-price-details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: right;
+            border-left: 1px solid #e9ecef;
+            padding-left: 20px;
+        }
+
+        .trip-card-content h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 0 0 10px 0;
+        }
+
+        .trip-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 20px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #6c757d;
+            flex-direction: column;
+        }
+
+        .trip-details-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .trip-details-item i {
+            margin-right: 15px;
+            color: #ff8800;
+        }
+
+        .fa-people-group,
+        .fa-chart-line {
+            font-size: 1.2rem;
+            width: 15px;
+            text-align: center;
+        }
+
+        .trip-description {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+
+        .trip-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #343a40;
+            margin-bottom: 5px;
+        }
+
+        .availability-info {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+
+        .availability-info i {
+            color: #fd7e14;
+        }
+
+        .booking-schedule {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-top: 10px;
+        }
+
+        .booking-schedule-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-bottom: 5px;
+        }
+
+        .booking-schedule-item i {
+            color: #fd7e14;
+            margin-right: 5px;
+        }
+
+        .trip-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .months-available {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+
+        .months-available .month-label {
+            margin-right: 5px;
+        }
+
+        .month-item {
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 5px 8px;
+            cursor: pointer;
+        }
+
+        .month-item.available {
+            background-color: #fd7e14;
+            color: #fff;
+            border-color: #fd7e14;
+        }
+
+        .month-item.selected {
+            background-color: #fd7e14;
+            color: #fff;
+            border-color: #fd7e14;
+        }
+
+        .btn-booking {
+            background-color: #fd7e14;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .btn-booking:hover {
+            background-color: #00ffe5;
+        }
+
+
+
+        /* css tuar điểm đến,hoat động , các loại toaur  */
+        /* General styling */
+
+        .destinations-section {
+            padding-top: 200px;
+            padding-bottom: 50px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            padding-bottom: 150px;
+        }
+
+        /* Grid layout */
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        /* Card styling */
+        .location-card {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .location-card:hover {
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 350px;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .trips-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+            padding: 15px 10px 10px 10px;
+            transition: color 0.3s ease;
+        }
+
+        .card-title:hover {
+            color: #ff6600;
+        }
+
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .destinations-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .destinations-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* hover Trang cac hoat động */
+
+        .location-card_hover{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        position: absolute;
+        background-color: rgba(0, 255, 255, 0.507);
+        transition: all 0.3s ease;
+        opacity: 0;
+    }
+    .location-card_hover>a{
+        margin: auto;
+        padding: 5px 20px;
+        background-color:rgba(240, 248, 255, 0);
+        border: 2px solid #fff;
+        border-radius: 5px;
+        color:#fff;
+        font-size: 20px;
+        box-sizing: border-box;
+        transform: translateY(100px);
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+    .location-card_hover>a:hover{
+        background-color:#fff;
+        color:rgb(255, 119, 0);
+    }
+    .location-card:hover .location-card_hover{
+        opacity: 1;
+    }
+    .location-card_hover:hover a{
+        transform: translateY(0px);
+        opacity: 1;
+    }

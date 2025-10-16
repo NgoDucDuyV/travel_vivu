@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .boxtranfrom{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        background-color:#00000036;
+    }
+    .boxtranfrom-submenu{
+        transform: skewY(-15deg);
+    }
+    li{
+        list-style-type: none;
+    }
+    .submenu-item{
+        max-width: 200px;
+        width: 200px;
+        height: 80px;
+        background-color:#fff;
+        position: relative;
+        z-index: calc(1 * var(--i));
+        transition: all 0.3s ease-out;
+    }
+    .submenu-item:last-child{
+        box-shadow:0px 100px 100px #000;
+    }
+    .submenu-item:hover{
+        transition: all 0.3s ease-out;
+        transform: translateX(-100px);
+    }
+    a{
+        text-decoration: none;
+    }
+    .submenu-item>a{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items:center;
+        padding-left: 40px;
+        /* position: absolute;
+        top: 50%;
+        left: 20%; */
+        color:#000;
+        font-weight: 700;
+        }
+
+    .submenu-item::before{
+        content:'';
+        display: block;
+        width: 80px;
+        height: 80px;
+        background-color:#ffffff;
+        position: absolute;
+        left: -80px;
+        top: -40px;
+        transform: skewY(45deg);
+        }
+
+        .submenu-item::after{
+            content:'';
+            width: 200px;
+            height: 80px;
+            background-color:#fff;
+            position: absolute;
+            top: -80px;
+            left:-40px;
+            transform: skewX(45deg);
+        }
+        .submenu-item:hover{
+            background-color:#000;
+            &.submenu-item>a{
+                color:#fff;
+            }
+            &.submenu-item::after,&.submenu-item::before{
+                background-color:#000;
+                transition: all 0.3s ease;
+            }
+            
+        }
+
+        /* boxmenu 2 */
+
+        .boxtranfrom2-submenu{
+            translate: 0 0 ;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .submenu2-item{
+            width: 50px;
+            height: 100px;
+            background-color:#fff;
+            margin: 0px 30px;
+            transition: all 0.3s ease-out;
+            position: relative;
+            transform: rotate(30deg) skew(-25deg)
+            translate(0,0);
+        }
+        .submenu2-item:hover{
+            transition: all 0.3s ease-out;
+            transform: rotate(30deg) skew(-25deg) translate(-20px, -15px);
+            box-shadow: 50px 50px 50px #0000008c;
+        }
+        .submenu2-item>a{
+            width: 100%;
+            height: 100%;
+            color:#000;
+            text-align: center;
+            display: flex;
+            padding-top: 80%;
+        }
+        .submenu2-item::before{
+            content:'';
+            width: 50px;
+            height: 10px;
+            background-color: #686868;
+            position: absolute;
+            bottom:-10px;
+            left: 5px;
+            transform: skewX(45deg);
+        }
+        .submenu2-item::after{
+            content:'';
+            width: 10px;
+            height: 100px;
+            background-color:#b6b6b6;
+            position: absolute;
+            bottom:-5px;
+            right: -10px;
+            transform: skewY(45deg);
+        }
+        
+</style>
+<body>
+    <div class="boxtranfrom" style="--i:2">
+        <ul class="boxtranfrom-submenu">
+            <li class="submenu-item" style="--i:5" >
+                <a href=""> Trang Chủ</a>
+            </li>
+            <li class="submenu-item" style="--i:4" >
+                <a href=""> Liên Hệ</a>
+            </li>
+            <li class="submenu-item" style="--i:3" >
+                <a href=""> Liên Hệ</a>
+            </li>
+            <li class="submenu-item" style="--i:2" >
+                <a href=""> Liên Hệ</a>
+            </li>
+            <li class="submenu-item" style="--i:1" >
+                <a href=""> Liên Hệ</a>
+            </li>
+        </ul>
+
+        <ul class="boxtranfrom2-submenu">
+            <li class="submenu2-item" style="--i:5">
+                <a href=""> Trang Chủ</a>
+            </li>
+            <li class="submenu2-item" style="--i:4">
+                <a href=""> Liên Hệ</a>
+            </li>
+            <li class="submenu2-item" style="--i:3">
+                <a href=""> Liên Hệ</a>
+            </li>
+            <li class="submenu2-item" style="--i:2">
+                <a href=""> Liên Hệ</a>
+            </li>
+            <li class="submenu2-item" style="--i:1">
+                <a href=""> Liên Hệ</a>
+            </li>
+        </ul>
+    </div>
+
+
+</body>
+</html>

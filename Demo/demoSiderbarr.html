@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin chuyến đi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            display: flex;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 700px;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .image-container {
+            flex-shrink: 0;
+        }
+
+        .image-container img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .details {
+            flex-grow: 1;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            margin: 0 0 10px;
+            color: #333;
+        }
+
+        p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .status {
+            font-weight: bold;
+        }
+
+        .status.pending {
+            color: #ffc107;
+        }
+
+        .status.waiting {
+            color: #6c757d;
+        }
+
+        .paid {
+            color: #dc3545;
+        }
+
+        .financials {
+            margin-top: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .pay-now-btn {
+            background-color: #ff6f00;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .pay-now-btn:hover {
+            background-color: #e65c00;
+        }
+
+        .view-details-btn {
+            background-color: white;
+            color: #ff6f00;
+            border: 1px solid #ff6f00;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .view-details-btn:hover {
+            background-color: #fff3e0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="image-container">
+            <img src="assets/upload/image_Tuar/service-package2-sanpam_img1.jpg" alt="Beautiful lakeside village" />
+        </div>
+        <div class="details">
+            <h2 class="title">Maldives: The Travel and Experience of the Lifetime</h2>
+            <p><strong>Departure:</strong> 30 Tháng Sáu, 2025</p>
+            <p><strong>Booking Status:</strong> <span class="status pending">Pending</span></p>
+            <p><strong>Payment Status:</strong> <span class="status waiting">Waiting for Check</span></p>
+            <div class="financials">
+                <p><strong>Total:</strong> 2,300,000₫</p>
+                <p><strong>Paid:</strong> <span class="paid">0₫</span></p>
+                <p><strong>Due:</strong> 2,300,000₫</p>
+            </div>
+        </div>
+        <div class="actions">
+            <button class="pay-now-btn">PAY NOW</button>
+            <button class="view-details-btn">XEM CHI TIẾT</button>
+        </div>
+    </div>
+
+</body>
+</html>

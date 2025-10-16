@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonial Demo</title>
+    <style>
+        body {
+            background-color: #212121;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .testimonial-container {
+            position: relative;
+            width: 800px;
+            height: 800px;
+            background-color: #ff7f2a;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/World_map_with_rivers_and_lakes.svg/1920px-World_map_with_rivers_and_lakes.svg.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.95;
+            overflow: hidden;
+            border: 3px solid #ff7f2a;
+        }
+
+        .testimonial-content {
+            text-align: center;
+            max-width: 60%;
+            z-index: 2;
+        }
+
+        .quote-icon {
+            font-size: 8rem;
+            line-height: 1;
+            font-weight: bold;
+            color: #fff;
+            position: absolute;
+            top: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .stars {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 5px;
+            color: #ffd700;
+        }
+
+        .quote-text {
+            font-size: 1.1rem;
+            font-weight: 400;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .quote-author {
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        .main-avatar {
+            margin-top: 20px;
+        }
+
+        .main-avatar img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.7);
+            object-fit: cover;
+        }
+
+        .main-avatar h3 {
+            margin: 10px 0 5px;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .main-avatar p {
+            margin: 0;
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        .other-avatars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .avatar {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid #00c6ff;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .top-left { top: 6%; left: 10%; }
+        .top-right { top: 6%; right: 10%; }
+        .bottom-left { bottom: 6%; left: 10%; }
+        .bottom-right { bottom: 6%; right: 10%; }
+
+        @media (max-width: 768px) {
+            .testimonial-container {
+                width: 90vw;
+                height: 90vw;
+            }
+            .quote-icon {
+                font-size: 6rem;
+                top: 6%;
+            }
+            .stars {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+            }
+            .quote-text {
+                font-size: 1rem;
+            }
+            .main-avatar img {
+                width: 80px;
+                height: 80px;
+            }
+            .main-avatar h3 {
+                font-size: 1rem;
+            }
+            .avatar {
+                width: 45px;
+                height: 45px;
+            }
+            .top-left { top: 4%; left: 8%; }
+            .top-right { top: 4%; right: 8%; }
+            .bottom-left { bottom: 4%; left: 8%; }
+            .bottom-right { bottom: 4%; right: 8%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="testimonial-container">
+        <div class="testimonial-content">
+            <span class="quote-icon">"</span>
+            <div class="stars">
+                ⭐⭐⭐⭐⭐
+            </div>
+            <p class="quote-text">
+                Contrary to popular belief, Lorem Ipsum is not simply random text over 2000 years old.
+            </p>
+            <p class="quote-author">
+                Richard McClintock
+            </p>
+            <div class="main-avatar">
+                <img src="https://images.unsplash.com/photo-1547425260-76bc0a18736e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Jannie Marko">
+                <h3>Jannie Marko</h3>
+                <p>Thái Lan</p>
+            </div>
+        </div>
+        <div class="other-avatars">
+            <div class="avatar top-left">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1664&q=80" alt="Avatar 1">
+            </div>
+            <div class="avatar top-right">
+                <img src="https://images.unsplash.com/photo-1560250085-802773179374?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Avatar 2">
+            </div>
+            <div class="avatar bottom-left">
+                <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1542&q=80" alt="Avatar 3">
+            </div>
+            <div class="avatar bottom-right">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Avatar 4">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
