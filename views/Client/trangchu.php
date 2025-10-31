@@ -20,9 +20,9 @@
         <div class="content hero-layout">
             <div class="hero-layout_top">
                 <div class="hero-style2">
-                    <div class="hero-content">
-                        <span class="hero-subtitle">Lên đường ngay</span>
-                        <h2 class="hero-title">Vẻ đẹp thiên nhiên</h2>
+                    <div class="hero-content *:text-shadow-lg">
+                        <span class="hero-subtitle font-[600]">Lên đường ngay</span>
+                        <h2 class="hero-title font-[800]">Vẻ đẹp thiên nhiên</h2>
                         <p class="hero-text">Cras ultricies ligula sed magna dictum porta. Vivamus magna justo, lacinia eget
                             consectetur sed, convallis at tellus. Quisque velit nisi, pretium ut lacignia convallis at tellus.</p>
                         <a href="" class="hero-btn style">Đặt vé ngay</a>
@@ -52,7 +52,7 @@
         </div>
 
         <!-- container -->
-        <section class="container">
+        <section class="container mx-auto">
             <div class="content container">
                 <div class="elementor-from">
                     <form action="" class="from-search">
