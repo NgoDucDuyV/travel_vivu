@@ -71,7 +71,7 @@
 
                 <div class="flex flex-row 
                 [&>:first-child]:mr-[10px]">
-                    <div class="flex items-center justify-between">
+                    <div class="flex items-center justify-between *:mr-2">
                         <div class="flex items-center">
                             <input
                                 type="checkbox"
@@ -82,7 +82,7 @@
                                 Remember me
                             </label>
                         </div>
-                        <a href="<?= BASE_URL ?>?mode=client&act=resetPassword" class="text-sm font-normal text-gray-600 hover:text-orange-500">
+                        <a href="<?= BASE_URL ?>?mode=client&act=resetPassword" class="text-sm font-[600] text-gray-600 hover:text-orange-500 hover:underline hover:bg-[#0000]">
                             Forgot Password ?
                         </a>
                     </div>

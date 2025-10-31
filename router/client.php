@@ -45,7 +45,6 @@ match ($act) {
     //     ]);
     //     exit;
     // })(),
-
     'TuarDaLuu' => (function () {
         echo json_encode([
             (new AccountInformationController())->ShowTuarDaLuu(),
@@ -120,6 +119,11 @@ match ($act) {
     })(),
     'resetPassword' => (function () {
         (new UserLoginSiginController())->resetPassword();
+        exit;
+    })(),
+
+    '404' => (function () {
+        require_once Views_Client . "404.php";
         exit;
     })(),
 

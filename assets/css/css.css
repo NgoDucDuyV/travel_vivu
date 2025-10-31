@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 :root{
-    --color-hesder:#ffffff;
     --color:#ffffff;
     --background-mau1:#181a1b;
     --background-hero-layout:url('img/banner-bg-1.png');
@@ -106,7 +105,7 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow-clip-margin: hidden;
 }
 
 body{
@@ -262,7 +261,7 @@ div.hero-layout{
 }
 
 .hero-subtitle{
-    font-size: var(----font-size-hero-subtitle);
+    font-size: var(--font-size-hero-subtitle);
     color:var(--title-link);
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 

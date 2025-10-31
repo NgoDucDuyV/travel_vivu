@@ -85,7 +85,7 @@
         </div>
     </div>
     <!-- header -->
-    <header class="header ">
+    <header class="header bg-white shadow-lg">
         <div class="content-header">
             <div class="logo">
                 <a href="<?= BASE_URL ?>" class="logo_Logo_Dregner"><img src="<?= IMAGECHUNG ?>Logo_Dregner_DuyDumStorsmaty.png" alt="" class="logo"></a>

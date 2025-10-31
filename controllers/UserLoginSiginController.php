@@ -78,10 +78,10 @@ class UserLoginSiginController
             exit();
         }
 
-        $datauserone = $user->GetOne($idUserClient);
+        $datauser = $user->GetOne($idUserClient);
         unset($_SESSION['errorlogin']);
         $_SESSION['username'] = $username;
-        $_SESSION['valueUserClient'] = $datauserone; // thông tin của user Client
+        $_SESSION['valueUserClient'] = $datauser; // thông tin của user Client
         // var_dump($_SESSION['valueUserClient']->id);
         // die;
         // echo json_encode([
@@ -90,7 +90,8 @@ class UserLoginSiginController
         echo json_encode([
             'success' => true,
             'redirect' => BASE_URL . '?mode=client&act=clientaccount',
-            'errorlogin' => "Đăng Nhập Thành Công! Chuyển Hướng..."
+            'errorlogin' => "Đăng Nhập Thành Công! Chuyển Hướng...",
+            'datauser' => $datauser
         ]);
         exit;
     }

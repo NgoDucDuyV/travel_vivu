@@ -18,7 +18,6 @@ if (checkkeds || passwordInputs) {
 
 // signup
 const fromsignup = document.getElementById("fromsignup");
-console.log(fromsignup);
 if (fromsignup) {
   fromsignup.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -59,6 +58,8 @@ const signup = () => {
 
 // login
 const formlogin = document.getElementById("formlogin");
+const remember_me = document.getElementById("remember_me");
+
 console.log(formlogin);
 if (formlogin) {
   formlogin.addEventListener("submit", (e) => {
@@ -88,7 +89,10 @@ const login = () => {
       if (data.success) {
         document.getElementById("login_email").value = "";
         document.getElementById("login_password").value = "";
-
+        if (remember_me.checked) {
+          console.log(data.datauser);
+          localStorage.setItem("user", JSON.stringify(data.datauser));
+        }
         window.location.replace(`${data.redirect}`);
       }
     })
