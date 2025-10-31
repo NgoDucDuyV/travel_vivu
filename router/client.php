@@ -30,34 +30,46 @@ match ($act) {
             (new Showformloidangnhap())->Showformloidangnhap($src);
             exit;
         } else {
-            (new UserLoginSiginController())->ShowSiderbarUser();
+            (new AccountInformationController())->ShowSiderbarUser();
         }
     })(),
 
+    // AJAX CLIENT ACCOUNT
+    // 'btnDemoMode' => (function () {
+    //     $requestData = json_decode(file_get_contents("php://input"), true);
+    //     $username = $requestData['username'] ?? '';
+    //     $password = $requestData['password'] ?? '';
+    //     echo json_encode([
+    //         'username' => $username,
+    //         'password' => $password
+    //     ]);
+    //     exit;
+    // })(),
+
     'TuarDaLuu' => (function () {
         echo json_encode([
-            (new UserLoginSiginController())->ShowTuarDaLuu(),
+            (new AccountInformationController())->ShowTuarDaLuu(),
         ]);
         exit;
     })(),
 
     'TuarChoThanhToan' => (function () {
         echo json_encode([
-            (new UserLoginSiginController())->ShowTuarChoThanToan(),
+            (new AccountInformationController())->ShowTuarChoThanToan(),
         ]);
         exit;
     })(),
 
     'diachi' => (function () {
         echo json_encode([
-            (new UserLoginSiginController())->ShowDiachi(),
+            (new AccountInformationController())->ShowDiachi(),
         ]);
         exit;
     })(),
 
     'taikhoan' => (function () {
         echo json_encode([
-            (new UserLoginSiginController())->ShowTaikoan(),
+            (new AccountInformationController())->ShowTaikoan(),
         ]);
         exit;
     })(),
@@ -85,19 +97,31 @@ match ($act) {
 
     'themimage' => (function () {
         echo json_encode([
-            (new UserLoginSiginController())->Themimageuser($_GET['id']),
+            (new AccountInformationController())->Themimageuser($_GET['id']),
         ]);
         exit;
     })(),
 
     'showfromlogin' => (new UserLoginSiginController())->ShowFromLogin(),
-    'login' => (new UserLoginSiginController())->login(),
+    'login' => (function () {
+        $requestData = json_decode(file_get_contents("php://input"), true);
+        (new UserLoginSiginController())->login($requestData);
+        exit;
+    })(),
     'showformsigin' => (new UserLoginSiginController())->ShowFromSigin(),
-    'sigin' => (new UserLoginSiginController())->Sigin(),
-    'logout' => (new UserLoginSiginController())->logout(),
-    'resetPassword' => (new UserLoginSiginController())->resetPassword(),
-
-
+    'sigin' => (function () {
+        $requestData = json_decode(file_get_contents("php://input"), true);
+        (new UserLoginSiginController())->Sigin($requestData);
+        exit;
+    })(),
+    'logout' => (function () {
+        (new UserLoginSiginController())->Logout();
+        exit;
+    })(),
+    'resetPassword' => (function () {
+        (new UserLoginSiginController())->resetPassword();
+        exit;
+    })(),
 
     default => (new TrangchuController())->ShowTrangchu(),
 };

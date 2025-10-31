@@ -194,7 +194,6 @@
                 color: var(--light-text-color);
                 font-size: 1em;
                 transition: background-color 0.2s, color 0.2s;
-                transition: all 2s ease;
             }
 
             .sidebar-nav a i {

@@ -1,5 +1,4 @@
 <?php
-session_start();
 // Đăng Ký đăng nhập User Client
 class UserLoginSiginController
 {
@@ -20,48 +19,49 @@ class UserLoginSiginController
     }
 
     // su lý đăng nhập 
-    public function login()
+    public function login($requestData)
     {
-
+        // echo json_encode($requestData);
+        // exit;
         unset($_SESSION['success']);
         if (
-            $_POST['username'] == ''
-            || $_POST['password'] == ''
+            $requestData['username'] == ''
+            || $requestData['password'] == ''
         ) {
             $_SESSION['errorlogin'] = "Mời Nhập Tất Cả Các Trường Thông Tin !";
             header('Location:' . BASE_URL . '?mode=client&act=showfromlogin');
             exit;
         }
 
-        $username = trim($_POST['username']);
-        $password = trim($_POST['password']);
+        $username = trim($requestData['username']);
+        $password = trim($requestData['password']);
 
         $user = new User();
         $datauserclient = $user->GetAll();
 
         $TontaiUsename = false;
         foreach ($datauserclient as $value) {
-            if ($value->username == $username) {
+            if ($value->username == $username || $value->email == $username) {
                 $TontaiUsename = true;
                 break;
             }
         }
-
         // foreach ($dataUserAdmin as $dataUserAdminvalue):
         //     if ($dataUserAdminvalue->useremail == $username) {
         //         $TontaiUsename = "CÓ TỒN TẠI";
         //     }
         // endforeach;
-
         if (!$TontaiUsename) {
-            $_SESSION['errorlogin'] = "Tên Đăng Nhập Không Tồn Tại or Lỗi Đăng Nhập!";
-            header('Location:' . BASE_URL . '?mode=client&act=showfromlogin');
+            echo json_encode([
+                'success' => false,
+                'errorlogin' => "username or Email Không Tồn Tại or Lỗi Đăng Nhập!"
+            ]);
             exit();
         }
 
         $valueUserClient = false;
         foreach ($datauserclient as $value) {
-            if ($value->username == $username && $value->password == $password) {
+            if (($value->username == $username || $value->email == $username) && $value->password == $password) {
                 $valueUserClient = true;
                 $idUserClient = $value->id;
                 break;
@@ -71,8 +71,10 @@ class UserLoginSiginController
         // die;
 
         if (!$valueUserClient) {
-            $_SESSION['errorlogin'] = "Tên Đăng Nhập or Pwssword Không Đúng or Lỗi Đăng Nhập!";
-            header('Location:' . BASE_URL . '?mode=client&act=showfromlogin');
+            echo json_encode([
+                'success' => false,
+                'errorlogin' => "username or Email or Password Không Đúng or Lỗi Đăng Nhập!"
+            ]);
             exit();
         }
 
@@ -85,7 +87,11 @@ class UserLoginSiginController
         // echo json_encode([
         //     'url' => BASE_URL . "?mode=client&act=clientaccount"
         // ]);
-        header("Location: " . BASE_URL . "?mode=client&act=clientaccount");
+        echo json_encode([
+            'success' => true,
+            'redirect' => BASE_URL . '?mode=client&act=clientaccount',
+            'errorlogin' => "Đăng Nhập Thành Công! Chuyển Hướng..."
+        ]);
         exit;
     }
 
@@ -96,62 +102,69 @@ class UserLoginSiginController
     }
 
     // sử lý đăng ký
-    public function Sigin()
+    public function Sigin($requestData)
     {
+        // echo json_encode($requestData['username']);
+        // exit;
         $user = new User();
         $datauser = $user->GetAll();
-
         if (
-            $_POST['name'] == ''
-            || $_POST['email'] == ''
-            || $_POST['username'] == ''
-            || $_POST['password'] == ''
-            || $_POST['confirm_password'] == ''
+            $requestData['username'] == ''
+            || $requestData['email'] == ''
+            || $requestData['password'] == ''
         ) {
-            $_SESSION['errorsigin'] = "Mời Nhập Tất Cả Các Trường Thông Tin !";
-            header('Location:' . BASE_URL . '?mode=client&act=showformsigin');
-            exit();
+            echo json_encode([
+                'success' => false,
+                'errorsigin' => "Mời Nhập Tất Cả Các Trường Thông Tin !"
+            ]);
+            exit;
         }
 
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $username = trim($_POST['username']);
-        $password = trim($_POST['password']);
-        $confirm_password = $_POST['confirm_password'];
+        $email = trim($requestData['email']);
+        $username = trim($requestData['username']);
+        $password = trim($requestData['password']);
 
         foreach ($datauser as $datauservalue):
-            if ($datauservalue->username == $username) {
-                $_SESSION['errorsigin'] = "Tên đăng nhập đã tồn tại hoặc lỗi đăng ký!";
-                header("Location: " . BASE_URL . "?mode=client&act=showformsigin");
-                exit();
+            if ($datauservalue->email == $email || $datauservalue->username == $username) {
+                echo json_encode([
+                    'success' => false,
+                    'errorsigin' => "Email or username đã tồn tại hoặc lỗi đăng ký!"
+                ]);
+                exit;
             }
         endforeach;
 
-        $patternPassword = '/^[A-Z](?=.*\d)(?=.*\W)/'; //viết hoa chữ cái đầu và 1 số và 1 ký tự đặc biệt
+        // $patternPassword = '/^[A-Z](?=.*\d)(?=.*\W)/'; //viết hoa chữ cái đầu và 1 số và 1 ký tự đặc biệt
+        $patternPassword = '/^(?=.*\d)(?=.*\W)/'; //viết hoa chữ cái đầu và 1 số và 1 ký tự đặc biệt
         $patternUserName = '/^[A-Z](?=.*\d)/'; //viết hoa chữ cái đầu và 1 ký tự đặc biệt và 1 số
-        if (strlen($username) < 8 || !preg_match($patternUserName, $username)) {
-            $_SESSION['errorsigin'] = "Tên Đăng Nhập ít nhất 8 ký tự viết hoa chữ cái đầu  và 1 số!";
-            header("Location: " . BASE_URL . "?mode=client&act=showformsigin");
-            exit();
+        // if (strlen($username) < 8 || !preg_match($patternUserName, $username)) {
+        //     $_SESSION['errorsigin'] = "Tên Đăng Nhập ít nhất 8 ký tự viết hoa chữ cái đầu  và 1 số!";
+        //     header("Location: " . BASE_URL . "?mode=client&act=showformsigin");
+        //     exit();
+        // }
+        if (strlen($password) < 8 || !preg_match($patternPassword, $password)) {
+            echo json_encode([
+                'success' => false,
+                'errorsigin' => "Mật Khẩu ít nhất 8 ký tự ít nhất 1 số và 1 ký tự đặc biệt!"
+            ]);
+            exit;
         }
 
-        if (strlen($password) < 10 || !preg_match($patternPassword, $password)) {
-            $_SESSION['errorsigin'] = "Mật Khẩu ít nhất 10 ký tự viết hoa chữ cái đầu và 1 ký tự đặc biệt và 1 số!";
-            header("Location: " . BASE_URL . "?mode=client&act=showformsigin");
-            exit();
-        }
-
-        if ($password !== $confirm_password) {
-            $_SESSION['errorsigin'] = "Mật khẩu không khớp!";
-            header("Location: " . BASE_URL . "?mode=client&act=showformsigin");
-            exit();
-        }
+        // if ($password !== $confirm_password) {
+        //     $_SESSION['errorsigin'] = "Mật khẩu không khớp!";
+        //     header("Location: " . BASE_URL . "?mode=client&act=showformsigin");
+        //     exit();
+        // }
 
         unset($_SESSION['errorsigin']);
-        $user->Inssetregister();
-        $_SESSION['success'] = "Đăng ký thành công! Bạn có thể đăng nhập.";
-        header("Location: " . BASE_URL . "?mode=client&act=showfromlogin");
-        exit();
+        $user->Inssetregister($requestData);
+        $_SESSION['success'] = "Đăng Ký Thành Công! Mời Đăng Nhập.";
+        echo json_encode([
+            'success' => true,
+            'redirect' => BASE_URL . '?mode=client&act=showfromlogin',
+            'errorsigin' => "Đăng ký thành công! Chuyển hướng đến trang đăng nhập..."
+        ]);
+        exit;
     }
 
     // viewws trang thổi mật khuâu quên mật khẩu
@@ -167,96 +180,6 @@ class UserLoginSiginController
         header("Location: " . BASE_URL . "?mode=client&act=showfromlogin");
         exit;
     }
-
-    // views Giao diện đăng nhập Tài khoản người dùng
-    public function ShowDattuar()
-    {
-        $view_file = Views_Client . 'userdattua.php';
-        $this->ShowOptionUser($view_file);
-    }
-
-    public function ShowDiachi()
-    {
-        $view_file = Views_Client . 'userDiachi.php';
-        $this->ShowOptionUser($view_file);
-    }
-
-    public function ShowTaikoan()
-    {
-        $view_file = Views_Client . 'userTaikhoan.php';
-        $this->ShowOptionUser($view_file);
-    }
-    public function ShowTuarDaLuu()
-    {
-        $view_file = Views_Client . 'tuarDaLuu.php';
-        $this->ShowOptionUser($view_file);
-    }
-    public function ShowTuarChoThanToan()
-    {
-        $view_file = Views_Client . 'touarChothanhtoan.php';
-        $this->ShowOptionUser($view_file);
-    }
-
-    public function ShowOptionUser($view_file)
-    {
-        $tuar = new TuarModel();
-        $dataTuar = $tuar->GetAll();
-        // var_dump($dataTuar);
-        // die;
-        $user = new User();
-        $data = $user->GetOne($_SESSION['valueUserClient']->id);
-        // var_dump($data);
-        // die;
-        $dataTuarDaLuu = $tuar->getTuarDaLuu($data->id);
-
-        $dataChoThanhToan = $tuar->getTuarChoThanhToanModel($data->id);
-
-        require_once $view_file;
-    }
-
-    public function ShowSiderbarUser()
-    {
-
-        $tuar = new TuarModel();
-        $dataTuar = $tuar->GetAll();
-        // var_dump($dataTuar);
-        // die;
-        $user = new User();
-        $data = $user->GetOne($_SESSION['valueUserClient']->id);
-        // var_dump($data);
-        // die;
-        $dataTuarDaLuu = $tuar->getTuarDaLuu($data->id);
-
-        $dataChoThanhToan = $tuar->getTuarChoThanhToanModel($data->id);
-        // var_dump($dataTuarDaLuu);
-        // die;
-        $view_file = Views_Client . "touarChothanhtoan.php";
-        require Views_Client . "partials/siderbarUser.php";
-    }
-
-    // them ảnh Avate 
-    public function Themimageuser($id)
-    {
-        // var_dump($_FILES['image']);
-        // die;
-        if (
-            $_FILES['image'] == ''
-        ) {
-            header("Location: " . BASE_URL . "?mode=client&act=taikhoan");
-            exit;
-        }
-        $user = new User();
-        $datauser = $user->GetOne($_SESSION['valueUserClient']->id);
-
-        // var_dump($datauser->image);
-        // die;
-        $url = uploadImage(Image_Admin, $_FILES['image'], $datauser->image);
-
-        $user = new User();
-        $user->Imageuser($url, $id);
-
-        header("Location: " . BASE_URL . "?mode=client&act=clientaccount");
-    }
 }
 
 // đăng nhập Admin
@@ -269,7 +192,7 @@ class LoginControllerAdmin
             header('Location: ' . BASE_URL . '?mode=admin&act=gioithieuAdmin');
             exit;
         }
-        
+
         require_once Views_Admin . "formloginAdmin.php";
     }
 

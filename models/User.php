@@ -41,10 +41,13 @@ class User
     }
 
     // Đăng ký user mới
-    public function Inssetregister()
+    public function Inssetregister($requestData)
     {
-        $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        // mã hóa pasword  
+        $hashed_password = password_hash($requestData['password'], PASSWORD_DEFAULT);
+        // mã hóa pasword
+        // echo ($requestData['username'] . $requestData['email'] . $requestData['password']);
+        // echo isset($requestData['name']) ? $requestData['name'] : "vl";
+        // die;
         $sql = "
         INSERT INTO `users`(`username`, `password`,`email`,`name`,`date_creation`,`date_update`) VALUES 
         (:username ,:password , :email ,:name ,:date_creation ,:date_update)
@@ -52,10 +55,10 @@ class User
         date_default_timezone_set('Asia/Ho_Chi_Minh'); // GMT+7 cho Việt Nam
         $date = date("Y-m-d H:i:s");
         $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':username', $_POST['username']);
-        $stmt->bindParam(':password', $_POST['password']);
-        $stmt->bindParam(':email', $_POST['email']);
-        $stmt->bindParam(':name', $_POST['name']);
+        $stmt->bindParam(':username', $requestData['username']);
+        $stmt->bindParam(':password', $requestData['password']);
+        $stmt->bindParam(':email', $requestData['email']);
+        $stmt->bindParam(':name', $requestData['name']) ?? null;
         $stmt->bindParam(':date_creation', $date);
         $stmt->bindParam(':date_update', $date);
         $stmt->execute();

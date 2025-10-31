@@ -1,9 +1,9 @@
 <?php
-
+// session_start();
 // Biến môi trường, dùng chung toàn hệ thống
 // Khai báo dưới dạng HẰNG SỐ để không phải dùng $GLOBALS
-
-define('BASE_URL', 'http://localhost/mvc-oop-basic-duanmau-DuyDum-StorMaty_SimpleShop/');
+$_SESSION['BASE_URL'] = 'http://localhost/travel_vivu/';
+define('BASE_URL', 'http://localhost/travel_vivu/');
 define('Views_Admin', './views/Admin/');
 define('Views_Client', './views/Client/');
 define('Views_Router', './router/');

@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <style>
-
     </style>
 </head>
 
@@ -31,65 +30,99 @@
         </div>
     </section>
 
-    <section class="login">
-        <div class="content login">
-            <form action="<?= BASE_URL ?>?mode=client&act=sigin" method="POST" class="login-form login" id="loginform" style="height: 750px;">
-                <h2>Đăng ký tài khoản</h2>
-                <?php if (!empty($_SESSION['errorsigin'])) echo '<div class="error" style="color:red;"> <i class="bxr  bx-alert-shield"></i>' . htmlspecialchars($_SESSION['errorsigin']) . '</div>'; ?>
+    <section class="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 sm:mb-[100px] sm:min-h-[800px] ">
 
-                <div class="rectionSigin">
-                    <label>Họ Và Tên:</label>
-                    <input type="text" id="name" name="name" required />
-                </div>
+        <div class="max-w-[900px] w-full bg-white p-8 md:p-10 rounded-xl shadow-sm">
 
-                <div class="rectionSigin">
-                    <label>Email Người Dùng:</label>
-                    <input type="email" id="email" name="email" required />
-                </div>
+            <h2 class="text-3xl font-normal text-gray-900 mb-8">
+                Signup
+            </h2>
 
-                <div class="rectionSigin Hovernote" id="Hovernote">
-                    <label>Tên đăng nhập:</label>
-                    <input type="text" id="Username_dky" name="username" required />
-                    <div class="note">
-                        Tên Đăng Nhập Phải có:
-                        <ul>
-                            <li>Ít nhất 8 ký tự</li>
-                            <li>1 chữ hoa Đầu</li>
-                            <li>1 chữ số, một chữ</li>
-                        </ul>
+            <!-- error message -->
+            <div id="errorsignup" class="" role="alert">
+                <?php if (isset($_SESSION['successsignup'])): ?>
+                    <div class="p-3 mb-4 rounded-md bg-green-100 border border-green-400 text-green-700" role="alert">
+                        <p class="font-medium text-sm">
+                            <?= htmlspecialchars($_SESSION['successsignup']) ?>
+                        </p>
                     </div>
+                <?php endif ?>
+            </div>
+
+            <form id="fromsignup" action="<?= BASE_URL ?>?mode=client&act=sigin" method="POST" class="space-y-6">
+                <div>
+                    <label for="Username_dky" class="block text-sm font-normal text-gray-700 mb-1">
+                        Username<span class="text-red-500">*</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        required
+                        placeholder="Username"
+                        value="" class="appearance-none relative block w-full px-3 py-2.5 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 **bg-blue-50/70** text-base transition duration-150" />
                 </div>
 
-                <div class="rectionSigin Hovernote" id="Hovernote">
-                    <label>Mật khẩu:</label>
-                    <input type="password" id="password_dky" name="password" required />
-                    <div class="note">
-                        Mật khẩu phải có:
-                        <ul>
+                <div>
+                    <label for="email" class="block text-sm font-normal text-gray-700 mb-1">
+                        Email<span class="text-red-500">*</span>
+                    </label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        placeholder="Email address"
+                        class="appearance-none relative block w-full px-3 py-2.5 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 **bg-white** text-base transition duration-150" />
+                </div>
+
+                <div class="group relative">
+                    <label for="password_dky" class="block text-sm font-normal text-gray-700 mb-1">
+                        Password<span class="text-red-500">*</span>
+                    </label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        required
+                        placeholder="Password"
+                        class="appearance-none relative block w-full px-3 py-2.5 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 **bg-blue-50/70** text-base transition duration-150" />
+                    <div class="absolute z-10 top-full mt-2 w-64 bg-white p-4 rounded-lg shadow-lg border border-gray-200 group-hover:block hidden text-sm">
+                        <p class="font-medium text-gray-800 mb-2">
+                            Mật khẩu phải có:
+                        </p>
+
+                        <ul class="list-disc ml-4 space-y-1 text-gray-600 leading-tight">
                             <li>Ít nhất 10 ký tự</li>
-                            <li>1 chữ hoa Đầu</li>
                             <li>1 chữ số, một chữ</li>
                             <li>1 ký tự đặc biệt</li>
                         </ul>
                     </div>
                 </div>
-                <div class="rectionSigin">
-                    <label>Nhập lại mật khẩu:</label>
-                    <input type="password" id="passwordconform_dky" name="confirm_password" required />
-                </div>
-
                 <div>
                     <input type="checkbox" id="remember_medky" name="remember_me" class="checkpasswrod">
                     <label for="remember_me">check password</label>
                 </div>
-
-                <p>Đã có tài khoản? <a href="<?= BASE_URL ?>?mode=client&act=showfromlogin">Đăng nhập</a></p>
-                <button type="submit">Đăng ký</button>
+                <div class="pt-2"> <button
+                        type="submit"
+                        class="w-full flex justify-center py-2.5 px-4 border border-transparent text-base font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition duration-150 ease-in-out uppercase">
+                        SIGN UP
+                    </button>
+                </div>
             </form>
 
+            <div class="mt-6 text-center text-sm">
+                Have An Account?
+                <a href="<?= BASE_URL ?>?mode=client&act=showfromlogin" class="font-[800] text-gray-600 hover:text-orange-500 hover:bg-[#0000]">
+                    Log In
+                </a>
+            </div>
         </div>
     </section>
 
+    <script>
+        const BASE_URL = '<?= BASE_URL ?>';
+    </script>
     <script src="<?= Js_Client ?>loginSigin.js"></script>
 </body>
 

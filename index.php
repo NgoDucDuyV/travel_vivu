@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__ . '/commons/env.php';
 require_once __DIR__ . '/commons/function.php';
 
@@ -18,6 +19,7 @@ require_once __DIR__ . "/controllers/VechungtoiController.php";
 require_once __DIR__ . "/controllers/HoTro.php";
 require_once __DIR__ . "/controllers/AdminController.php";
 require_once __DIR__ . "/controllers/SiderbarHeaderFooterAdmin.php";
+require_once __DIR__ . "/controllers/AccountInformationController.php";
 
 
 $mode = isset($_GET['mode']) ? $_GET['mode'] : 'client';
