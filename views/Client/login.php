@@ -29,8 +29,8 @@
     </section>
 
     <!-- login -->
-    <section class="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 sm:px-6 lg:px-8 sm:mb-[100px] sm:min-h-[800px]">
-        <div class="max-w-[900px] w-full bg-white p-8 md:p-10 rounded-xl shadow-sm">
+    <section class="bg-gray-100 flex items-center justify-center py-12 pb-[160px] px-4 sm:px-6 lg:px-8 sm:px-6 lg:px-8 sm:mb-[100px] sm:min-h-[800px]">
+        <div class="max-w-[900px] h-auto w-full bg-white p-8 md:p-10 rounded-xl shadow-sm">
 
             <h2 class="text-3xl font-normal text-gray-900 mb-8">
                 Login
@@ -69,8 +69,8 @@
                         class="appearance-none relative block w-full px-3 py-2.5 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 **bg-blue-50/70** text-base transition duration-150" />
                 </div>
 
-                <div class="flex flex-row 
-                [&>:first-child]:mr-[10px]">
+                <div class="flex flex-row flex-wrap justify-between items-center 
+                [&>:first-child]:mr-[10px] [&>:first-child]:mb-[10px] sm:[&>:first-child]:mr-[0px]">
                     <div class="flex items-center justify-between *:mr-2">
                         <div class="flex items-center">
                             <input

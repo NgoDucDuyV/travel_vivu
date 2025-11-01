@@ -14,9 +14,9 @@
 </head>
 
 <body>
-    <img src="<?= Image_Chung ?>banner-bg-1.png" class="imgbackgraubody" alt="">
     <!-- hero layout -->
-    <section class="hero-layout">
+    <section class="hero-layout relative">
+        <img src="<?= Image_Chung ?>banner-bg-1.png" id="hero_bg" class="imgbackgraubody" alt="">
         <div class="content hero-layout">
             <div class="hero-layout_top">
                 <div class="hero-style2">

@@ -23,6 +23,7 @@
     --transiutton-imghover: all 1s ease;
     --box-shadow_nhe:0 0 20px #00000029;
     --box-shadowTouar:  0 4px 12px rgba(0, 0, 0, 0.2);
+    --maxWidth: 1500px;
 }
 /* header */
 ul{
@@ -50,13 +51,7 @@ img:hover{
     transition: var(--transiutton-imghover);
 }
 
-.content-area {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
+/* scroll bar */
     ::-webkit-scrollbar {
     width: 12px;
     height: 12px;
@@ -103,9 +98,7 @@ img:hover{
 html, body {
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow-clip-margin: hidden;
+    overflow-x: hidden;
 }
 
 body{
@@ -114,6 +107,7 @@ body{
     font-family: "Roboto", sans-serif;
     color: var(--text-color);
     transition: all 0.3s ease;
+    overflow: clip;
     position: relative;
 }
 /* image body */
@@ -225,7 +219,6 @@ section.hero-layout{
     /* background-image: url('<?= IMAGECHUNG ?>banner-bg-1.png'); */
     background-size:cover;
     position: relative;
-    z-index: 80;
 }
 
 div.hero-layout{
@@ -512,6 +505,7 @@ section.container{
     align-items:center;
     position: relative;
     top: 80px;
+    z-index: 10;
 }
 
 .elementor-from{
@@ -613,7 +607,6 @@ section.Essential-Tips{
     padding-top: 150px;
     background: linear-gradient(to bottom, #00b4d8, #90e0ef, #caf0f8);
     position: relative;
-
 }
 .maybayjs{
     position: absolute;

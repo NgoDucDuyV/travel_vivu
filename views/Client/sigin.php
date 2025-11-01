@@ -30,7 +30,7 @@
         </div>
     </section>
 
-    <section class="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 sm:mb-[100px] sm:min-h-[800px] ">
+    <section class=" bg-gray-100 flex items-center justify-center py-12 pb-[160px] px-4 sm:px-6 lg:px-8 sm:mb-[100px] sm:min-h-[800px] ">
 
         <div class="max-w-[900px] w-full bg-white p-8 md:p-10 rounded-xl shadow-sm">
 
